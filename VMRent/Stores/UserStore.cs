@@ -152,12 +152,15 @@ namespace VMRent.Stores
 
         public async Task<bool> GetTwoFactorEnabledAsync(User user, CancellationToken cancellationToken)
         {
-            throw new System.NotImplementedException();
+            var copy = _userRepository.Get(user.Id);
+            return copy.TwoFactorEnabled;
         }
 
         public async Task SetTwoFactorEnabledAsync(User user, bool enabled, CancellationToken cancellationToken)
         {
-            throw new System.NotImplementedException();
+            var copy = _userRepository.Get(user.Id);
+            copy.TwoFactorEnabled = enabled;
+            _userRepository.Update(copy);
         }
 
         #endregion
