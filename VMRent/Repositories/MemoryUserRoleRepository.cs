@@ -5,7 +5,7 @@ using VMRent.Models;
 
 namespace VMRent.Repositories
 {
-    public class MemoryUserRoleRoleRepository : IUserRoleRepository
+    public class MemoryUserRoleRepository : IUserRoleRepository
     {
         private readonly Dictionary<Guid, UserRole> _ctx = new Dictionary<Guid, UserRole>();
 

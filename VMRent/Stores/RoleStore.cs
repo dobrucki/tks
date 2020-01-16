@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using VMRent.Models;
 
-namespace VMRent.Services
+namespace VMRent.Stores
 {
-    public class RoleStoreService : IRoleStore<Role>
+    public class RoleStore : IRoleStore<Role>
     {
         public void Dispose()
         {

@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using VMRent.Repositories;
 
 namespace VMRent
 {
@@ -26,6 +27,14 @@ namespace VMRent
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc(options => { options.EnableEndpointRouting = false; });
+
+            # region Repository pattern DI
+            services.AddSingleton<IUserRepository, MemoryUserRepository>();
+            services.AddSingleton<IRoleRepository, MemoryRoleRepository>();
+            services.AddSingleton<IUserRoleRepository, MemoryUserRoleRepository>();
+            services.AddSingleton<IVmRepository, MemoryVmRepository>();
+            services.AddSingleton<IUserVmRepository, MemoryUserVmRepository>();
+            # endregion
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

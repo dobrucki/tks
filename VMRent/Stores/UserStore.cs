@@ -1,13 +1,31 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using VMRent.Models;
+using VMRent.Repositories;
 
 namespace VMRent.Stores
 {
-    public class UserStoreService : IUserStore<User>, IUserEmailStore<User>, IUserPhoneNumberStore<User>,
-        IUserTwoFactorStore<User>, IUserPasswordStore<User>
+    public class UserStore: IUserStore<User>, IUserEmailStore<User>, IUserPhoneNumberStore<User>,
+        IUserTwoFactorStore<User>, IUserPasswordStore<User>, IUserRoleStore<User>
     {
+        private readonly IUserRepository _userRepository;
+
+        private readonly IRoleRepository _roleRepository;
+
+        private readonly IUserRoleRepository _userRoleRepository;
+
+        public UserStore(IUserRoleRepository userRoleRepository, IUserRepository userRepository, 
+            IRoleRepository roleRepository)
+        {
+            _userRoleRepository = userRoleRepository;
+            _userRepository = userRepository;
+            _roleRepository = roleRepository;
+        }
+        
         public void Dispose()
         {
             // Nothing to dispose
@@ -163,5 +181,57 @@ namespace VMRent.Stores
 
         #endregion
         
+        #region IUserRoleStore
+        
+        public async Task AddToRoleAsync(User user, string roleName, CancellationToken cancellationToken)
+        {
+            bool Predicate(Role r) => 
+                string.Equals(r.Name, roleName, StringComparison.CurrentCultureIgnoreCase);
+            var rRole = _roleRepository.GetAll(Predicate).FirstOrDefault();
+            var rUser = _userRepository.Get(user.Id);
+            if (rRole != null && rUser != null)
+            {
+                var userRole = new UserRole
+                {
+                    User = rUser,
+                    Role = rRole
+                };
+                _userRoleRepository.Add(userRole);
+            }
+        }
+
+        public async Task<IList<string>> GetRolesAsync(User user, CancellationToken cancellationToken)
+        {
+            bool Predicate(UserRole userRole) =>
+                userRole.User.Id.Equals(user.Id);
+            return _userRoleRepository.GetAll(Predicate).Select(userRole => userRole.Role.Name).ToList();
+        }
+
+        public async Task<IList<User>> GetUsersInRoleAsync(string roleName, CancellationToken cancellationToken)
+        {
+            bool Predicate(UserRole userRole) =>
+                userRole.Role.Name.ToUpper().Equals(roleName.ToUpper());
+            return _userRoleRepository.GetAll(Predicate).Select(userRole => userRole.User).ToList();
+        }
+
+        public async Task<bool> IsInRoleAsync(User user, string roleName, CancellationToken cancellationToken)
+        {
+            bool Predicate(UserRole userRole) =>
+                userRole.User.Id.Equals(user.Id);
+            return _userRoleRepository
+                .GetAll(Predicate)
+                .Any(userRole => userRole.Role.Name.ToUpper().Equals(roleName.ToUpper()));
+        }
+
+        public async Task RemoveFromRoleAsync(User user, string roleName, CancellationToken cancellationToken)
+        {
+            bool Predicate(UserRole userRole1) =>
+                userRole1.User.Id.Equals(user.Id);
+            var userRole = _userRoleRepository.GetAll(Predicate)
+                .FirstOrDefault(userRole2 => userRole2.Role.Name.ToUpper().Equals(roleName.ToUpper()));
+            _userRoleRepository.Delete(userRole);
+        }   
+        
+        #endregion
     }
 }
