@@ -11,7 +11,13 @@
           <e p="AccountController.cs" t="Include" />
           <e p="HomeController.cs" t="Include" />
         </e>
-        <e p="Models" t="Include" />
+        <e p="Models" t="Include">
+          <e p="Role.cs" t="Include" />
+          <e p="User.cs" t="Include" />
+          <e p="UserRole.cs" t="Include" />
+          <e p="UserVm.cs" t="Include" />
+          <e p="Vm.cs" t="Include" />
+        </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.0" t="Include">
@@ -23,7 +29,24 @@
         <e p="Properties" t="Include">
           <e p="launchSettings.json" t="Include" />
         </e>
+        <e p="Repositories" t="Include">
+          <e p="DeepCopyTools.cs" t="Include" />
+          <e p="IRoleRepository.cs" t="Include" />
+          <e p="IUserRepository.cs" t="Include" />
+          <e p="IUserRoleRepository.cs" t="Include" />
+          <e p="IUserVMRepository.cs" t="Include" />
+          <e p="IVMRepository.cs" t="Include" />
+          <e p="MemoryRoleRepository.cs" t="Include" />
+          <e p="MemoryUserRepository.cs" t="Include" />
+          <e p="MemoryUserRoleRepository.cs" t="Include" />
+          <e p="MemoryUserVmRepository.cs" t="Include" />
+          <e p="MemoryVMRepository.cs" t="Include" />
+        </e>
         <e p="Startup.cs" t="Include" />
+        <e p="Stores" t="Include">
+          <e p="RoleStore.cs" t="Include" />
+          <e p="UserStore.cs" t="Include" />
+        </e>
         <e p="ViewModels" t="Include">
           <e p="LoginUserViewModel.cs" t="Include" />
         </e>

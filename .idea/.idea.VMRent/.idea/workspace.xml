@@ -1,19 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b823611d-6cef-4d9d-a8f5-ed59dfc95336" name="Default Changelist" comment="" />
+    <list default="true" id="b823611d-6cef-4d9d-a8f5-ed59dfc95336" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.VMRent/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VMRent/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.VMRent/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VMRent/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/Controllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Controllers/AccountController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/Repositories/MemoryUserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Repositories/MemoryUserRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/Stores/UserStore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Stores/UserStore.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/ViewModels/LoginUserViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/ViewModels/LoginUserViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/Views/Account/Login.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Views/Account/Login.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Views/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/bin/Debug/netcoreapp3.0/VMRent.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/bin/Debug/netcoreapp3.0/VMRent.Views.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/bin/Debug/netcoreapp3.0/VMRent.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/bin/Debug/netcoreapp3.0/VMRent.Views.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/bin/Debug/netcoreapp3.0/VMRent.dll" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/bin/Debug/netcoreapp3.0/VMRent.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/bin/Debug/netcoreapp3.0/VMRent.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/bin/Debug/netcoreapp3.0/VMRent.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/Razor/Views/Account/Login.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/Razor/Views/Account/Login.cshtml.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/Razor/Views/Shared/_Layout.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/Razor/Views/Shared/_Layout.cshtml.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.Views.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.Views.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.dll" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.pdb" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/VMRent/Views/Account/Login.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/VMRent/ViewModels/LoginUserViewModel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/VMRent/Controllers/HomeController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/VMRent/Startup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/VMRent/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VMRent/Models/User.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VMRent/Models/Role.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VMRent/Stores/UserStore.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VMRent/Stores/RoleStore.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VMRent/Repositories/IUserRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VMRent/Repositories/IRoleRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VMRent/Repositories/IUserRoleRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VMRent/Repositories/IVmRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VMRent/Repositories/IUserVmRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VMRent/Repositories/MemoryRoleRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VMRent/Repositories/MemoryUserRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VMRent/Repositories/MemoryUserRoleRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VMRent/Models/UserRole.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VMRent/Repositories/DeepCopyTools.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VMRent/Repositories/MemoryVmRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VMRent/Models/Vm.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VMRent/Models/UserVm.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VMRent/Controllers/HomeController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VMRent/Repositories/MemoryUserVmRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/VMRent/Views/Home/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/VMRent/Views/Shared/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/VMRent/Views/_ViewImports.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
@@ -30,18 +71,47 @@
         <option value="$PROJECT_DIR$/VMRent/Views/_ViewImports.cshtml.cs" />
         <option value="$PROJECT_DIR$/VMRent/Views/_ViewStart.cshtml.cs" />
         <option value="$PROJECT_DIR$/VMRent/Views/Account.cs" />
-        <option value="$PROJECT_DIR$/VMRent/ViewModels/LoginUserViewModel.cs" />
         <option value="$PROJECT_DIR$/VMRent/Views/_ViewStart.cshtml" />
-        <option value="$PROJECT_DIR$/VMRent/Views/Shared/_Layout.cshtml" />
-        <option value="$PROJECT_DIR$/VMRent/Controllers/AccountController.cs" />
-        <option value="$PROJECT_DIR$/VMRent/Views/Account/Login.cshtml" />
-        <option value="$PROJECT_DIR$/VMRent/Views/Home/Index.cshtml" />
-        <option value="$PROJECT_DIR$/VMRent/Startup.cs" />
         <option value="$PROJECT_DIR$/VMRent/Views/_ViewImports.cshtml" />
+        <option value="$PROJECT_DIR$/VMRent/Views/Home/Index.cshtml" />
+        <option value="$PROJECT_DIR$/VMRent/Models/User.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Models/Role.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Services/UserStoreService.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Services/RoleStoreService.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Stores/UserStoreService.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Repositories/IUserVMRepository.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Repositories/IRoleRepository.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Repositories/IUserRoleRepository.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Models/UserRole.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Repositories/MemoryRoleRepository.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Repositories/IVMRepository.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Repositories/MemoryVMRepository.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Repositories/IUserVmRepository.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Models/UserVm.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Repositories/IVmRepository.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Models/Vm.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Repositories/MemoryVmRepository.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Repositories/MemoryUserVmRepository.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Repositories/DeepCopyTools.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Stores/RoleStoreService.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Repositories/MemoryUserRoleRepository.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Stores/RoleStore.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Stores/UserRoleStore.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Repositories/IUserRepository.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Stores/UserStore.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Repositories/MemoryUserRepository.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Startup.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Views/Shared/_Layout.cshtml" />
+        <option value="$PROJECT_DIR$/VMRent/Views/Account/Login.cshtml" />
+        <option value="$PROJECT_DIR$/VMRent/Controllers/AccountController.cs" />
+        <option value="$PROJECT_DIR$/VMRent/ViewModels/LoginUserViewModel.cs" />
       </list>
     </option>
   </component>
   <component name="ProjectId" id="1WSF1wWXw5kxHgb3cVqaAhdG0jH" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
     <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
@@ -98,12 +168,23 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1579134878014</updated>
-      <workItem from="1579134879550" duration="2083000" />
+      <workItem from="1579134879550" duration="18398000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="true" />

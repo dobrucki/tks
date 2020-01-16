@@ -9,6 +9,23 @@ namespace VMRent.Repositories
     {
         private readonly Dictionary<Guid, User> _ctx = new Dictionary<Guid, User>();
 
+        public MemoryUserRepository()
+        {
+            var user = new User
+            {
+                Email = "user@example.com",
+                EmailConfirmed = true,
+                NormalizedEmail = "user@example.com".ToUpper(),
+                UserName = "user",
+                NormalizedUserName = "USER",
+                PasswordHash = "AQAAAAEAACcQAAAAELchcUyDbMj+/SMAB1IOBEijR4b4UoHGpJTK8A7qokIVX4uHE0Jmjwypltx/sdyn5w==",
+                PhoneNumber = "123123123",
+                Id = Guid.NewGuid().ToString(),
+                TwoFactorEnabled = false
+            };
+            Add(user);
+        }
+
         public User Add(User user)
         {
             var id = Guid.NewGuid();

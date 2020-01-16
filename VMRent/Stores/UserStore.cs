@@ -35,52 +35,58 @@ namespace VMRent.Stores
         
         public async Task<IdentityResult> CreateAsync(User user, CancellationToken cancellationToken)
         {
-            throw new System.NotImplementedException();
+            _userRepository.Add(user);
+            return IdentityResult.Success;
         }
 
         public async Task<IdentityResult> DeleteAsync(User user, CancellationToken cancellationToken)
         {
-            throw new System.NotImplementedException();
+            return IdentityResult.Failed();
         }
 
         public async Task<User> FindByIdAsync(string userId, CancellationToken cancellationToken)
         {
-            throw new System.NotImplementedException();
+            return _userRepository.Get(userId);
         }
 
         public async Task<User> FindByNameAsync(string normalizedUserName, CancellationToken cancellationToken)
         {
-            throw new System.NotImplementedException();
+            return _userRepository.GetAll(u => u.NormalizedUserName == normalizedUserName).FirstOrDefault();
         }
 
         public async Task<string> GetNormalizedUserNameAsync(User user, CancellationToken cancellationToken)
         {
-            throw new System.NotImplementedException();
+            return _userRepository.Get(user.Id).NormalizedUserName;
         }
 
         public async Task<string> GetUserIdAsync(User user, CancellationToken cancellationToken)
         {
-            throw new System.NotImplementedException();
+            return _userRepository.Get(user.Id).Id;
         }
 
         public async Task<string> GetUserNameAsync(User user, CancellationToken cancellationToken)
         {
-            throw new System.NotImplementedException();
+            return _userRepository.Get(user.Id).UserName;
         }
 
         public async Task SetNormalizedUserNameAsync(User user, string normalizedName, CancellationToken cancellationToken)
         {
-            throw new System.NotImplementedException();
+            var uUser = _userRepository.Get(user.Id);
+            uUser.NormalizedUserName = normalizedName;
+            _userRepository.Update(uUser);
         }
 
         public async Task SetUserNameAsync(User user, string userName, CancellationToken cancellationToken)
         {
-            throw new System.NotImplementedException();
+            var uUser = _userRepository.Get(user.Id);
+            uUser.UserName = userName;
+            _userRepository.Update(uUser);
         }
 
         public async Task<IdentityResult> UpdateAsync(User user, CancellationToken cancellationToken)
         {
-            throw new System.NotImplementedException();
+            _userRepository.Update(user);
+            return IdentityResult.Success;
         }
         
         #endregion
