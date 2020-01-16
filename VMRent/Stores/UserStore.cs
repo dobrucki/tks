@@ -166,17 +166,20 @@ namespace VMRent.Stores
 
         public async Task<string> GetPasswordHashAsync(User user, CancellationToken cancellationToken)
         {
-            throw new System.NotImplementedException();
+            var rUser = _userRepository.Get(user.Id);
+            return rUser.PasswordHash;
         }
 
         public async Task<bool> HasPasswordAsync(User user, CancellationToken cancellationToken)
         {
-            throw new System.NotImplementedException();
+            return !string.IsNullOrEmpty(_userRepository.Get(user.Id).PasswordHash);
         }
 
         public async Task SetPasswordHashAsync(User user, string passwordHash, CancellationToken cancellationToken)
         {
-            throw new System.NotImplementedException();
+            var copy = _userRepository.Get(user.Id);
+            copy.PasswordHash = passwordHash;
+            _userRepository.Update(copy);
         }
 
         #endregion

@@ -6,7 +6,7 @@ namespace VMRent.Repositories
 {
     public interface IUserRepository
     {
-        User Add(User role);
+        User Add(User user);
 
         User Get(string id);
 
@@ -14,6 +14,6 @@ namespace VMRent.Repositories
 
         IEnumerable<User> GetAll(Func<User, bool> predicate);
 
-        void Update(User role);
+        void Update(User user);
     }
 }
