@@ -21,7 +21,9 @@ namespace VMRent.Repositories
                 PasswordHash = "AQAAAAEAACcQAAAAELchcUyDbMj+/SMAB1IOBEijR4b4UoHGpJTK8A7qokIVX4uHE0Jmjwypltx/sdyn5w==",
                 PhoneNumber = "123123123",
                 Id = Guid.NewGuid().ToString(),
-                TwoFactorEnabled = false
+                TwoFactorEnabled = false,
+                LockoutEnabled = false,
+                LockoutEnd = null
             };
             Add(user);
         }
@@ -87,6 +89,8 @@ namespace VMRent.Repositories
             innerUser.PhoneNumberConfirmed = user.PhoneNumberConfirmed;
             innerUser.TwoFactorEnabled = user.TwoFactorEnabled;
             innerUser.UserName = user.UserName;
+            innerUser.LockoutEnabled = user.LockoutEnabled;
+            innerUser.LockoutEnd = user.LockoutEnd;
         }
     }
 }

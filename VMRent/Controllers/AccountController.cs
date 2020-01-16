@@ -17,14 +17,12 @@ namespace VMRent.Controllers
 
         #region Login
         
-        // GET
         [HttpGet]
         public IActionResult Login()
         {
             return View();
         }
         
-        // POST
         [HttpPost]
         public async Task<IActionResult> Login(LoginUserViewModel viewModel)
         {
@@ -44,11 +42,31 @@ namespace VMRent.Controllers
         
         #endregion
 
+        #region Logout
+        
         [HttpGet]
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
+        
+        #endregion
+
+        #region Register
+        
+        [HttpGet]
+        public async Task<IActionResult> Register()
+        {
+            
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Register()
+        {
+            
+        }
+
+        #endregion
     }
 }

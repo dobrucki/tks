@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Identity;
 
 namespace VMRent.Models
@@ -23,5 +24,9 @@ namespace VMRent.Models
         public bool PhoneNumberConfirmed { get; set; }
         
         public bool TwoFactorEnabled { get; set; }
+        
+        public bool LockoutEnabled { get; set; }
+        
+        public DateTimeOffset? LockoutEnd { get; set; }
     }
 }

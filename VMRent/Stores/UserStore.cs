@@ -10,7 +10,7 @@ using VMRent.Repositories;
 namespace VMRent.Stores
 {
     public class UserStore: IUserStore<User>, IUserEmailStore<User>, IUserPhoneNumberStore<User>,
-        IUserTwoFactorStore<User>, IUserPasswordStore<User>, IUserRoleStore<User>
+        IUserTwoFactorStore<User>, IUserPasswordStore<User>, IUserRoleStore<User>, IUserLockoutStore<User>
     {
         private readonly IUserRepository _userRepository;
 
@@ -134,22 +134,26 @@ namespace VMRent.Stores
     
         public async Task<string> GetPhoneNumberAsync(User user, CancellationToken cancellationToken)
         {
-            throw new System.NotImplementedException();
+            return _userRepository.Get(user.Id).PhoneNumber;
         }
 
         public async Task<bool> GetPhoneNumberConfirmedAsync(User user, CancellationToken cancellationToken)
         {
-            throw new System.NotImplementedException();
+            return _userRepository.Get(user.Id).PhoneNumberConfirmed;
         }
 
         public async Task SetPhoneNumberAsync(User user, string phoneNumber, CancellationToken cancellationToken)
         {
-            throw new System.NotImplementedException();
+            var rUser = _userRepository.Get(user.Id);
+            rUser.PhoneNumber = phoneNumber;
+            _userRepository.Update(rUser);
         }
 
         public async Task SetPhoneNumberConfirmedAsync(User user, bool confirmed, CancellationToken cancellationToken)
         {
-            throw new System.NotImplementedException();
+            var rUser = _userRepository.Get(user.Id);
+            rUser.PhoneNumberConfirmed = confirmed;
+            _userRepository.Update(rUser);
         }
 
         #endregion
@@ -243,6 +247,45 @@ namespace VMRent.Stores
                 .FirstOrDefault(userRole2 => userRole2.Role.Name.ToUpper().Equals(roleName.ToUpper()));
             _userRoleRepository.Delete(userRole);
         }   
+        
+        #endregion
+        
+        #region IUserLockoutStore
+
+        public async Task<int> GetAccessFailedCountAsync(User user, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<bool> GetLockoutEnabledAsync(User user, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<DateTimeOffset?> GetLockoutEndDateAsync(User user, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<int> IncrementAccessFailedCountAsync(User user, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task ResetAccessFailedCountAsync(User user, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task SetLockoutEnabledAsync(User user, bool enabled, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task SetLockoutEndDateAsync(User user, DateTimeOffset? lockoutEnd, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
         
         #endregion
     }
