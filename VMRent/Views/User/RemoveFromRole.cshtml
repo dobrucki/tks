@@ -1,0 +1,33 @@
+@model VMRent.ViewModels.ModifyUserRolesViewModel
+
+@{
+    ViewBag.Title = "Remove from role";
+}
+
+<form asp-action="RemoveFromRole" asp-controller="User" method="post" class="container-fluid mt-3 p-1 w-50">
+    
+    <input asp-for="UserId" type="hidden" value="@Model.UserId">
+
+    <div class="form-group">
+        <label asp-for="Role" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-8">
+            <select asp-for="Role" class="form-control">
+                @foreach (var role in Model.UserRoles)
+                {
+                    <option>@role</option>
+                }
+            </select>
+            <span asp-validation-for="Role" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-group">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <button type="submit" class="btn btn-primary">Remove</button>
+        </div>
+    </div>
+
+</form> 

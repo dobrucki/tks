@@ -1,0 +1,41 @@
+@using Microsoft.AspNetCore.Identity
+@using VMRent.Models
+@model VMRent.ViewModels.ModifyUserRolesViewModel
+@inject RoleManager<Role> RoleManager
+@inject UserManager<User> UserManager
+
+@{
+    ViewBag.Title = "Add to role";
+}
+
+<form asp-action="AddToRole" asp-controller="User" method="post" class="container-fluid mt-3 p-1 w-50">
+    
+    <input asp-for="UserId" type="hidden" value="@Model.UserId">
+
+    <div class="form-group">
+        <label asp-for="Role" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-8">
+            <select asp-for="Role" class="form-control">
+                @foreach (var role in RoleManager.Roles.ToList())
+                {
+                    @if (await UserManager.IsInRoleAsync(await UserManager.FindByIdAsync(Model.UserId), role.Name))
+                    {
+                        continue;
+                    }
+                    <option>@role.Name</option>
+                }
+            </select>
+            <span asp-validation-for="Role" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-group">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <button type="submit" class="btn btn-primary">Add</button>
+        </div>
+    </div>
+
+</form> 

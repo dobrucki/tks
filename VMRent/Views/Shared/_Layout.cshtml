@@ -26,22 +26,37 @@
   <!-- Navbar links -->
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
-      
+      @if (SignInManager.IsSignedIn(User))
+      {
+        var roles = await SignInManager.UserManager.GetRolesAsync(await SignInManager.UserManager.GetUserAsync(User));
+        if (roles.Contains("Administrator"))
+        {
+          <li class="nav-item mx-2">
+            <a asp-action="All" asp-controller="User" class="nav-link">Users</a>
+          </li>
+        }
+        <li class="nav-item mx-2">
+          <a asp-action="All" asp-controller="User" class="nav-link">Virtual machines</a>
+        </li>
+      }
     </ul>
     <ul class="navbar-nav ml-auto">
       @if (SignInManager.IsSignedIn(User))
       {
-        <li class="nav-item active">
-          <a class="nav-link" asp-action="Logout" asp-controller="Account">@User.Identity.Name - Logout</a>
+        <li class="nav-item mx-2">
+          <a class="nav-link">Hello @SignInManager.UserManager.GetUserAsync(User).Result.Email</a>
+        </li>
+        <li class="nav-item mx-2">
+          <a class="nav-link" asp-action="Logout" asp-controller="Account">Logout</a>
         </li>
       }
       else
       {
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link" asp-action="Login" asp-controller="Account">Login</a>
         </li>
-        <li class="nav-item active">
-          <a class="nav-link" asp-action="Login" asp-controller="Account">Register</a>
+        <li class="nav-item">
+          <a class="nav-link" asp-action="Register" asp-controller="Account">Register</a>
         </li>
       }
     </ul>

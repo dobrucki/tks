@@ -9,8 +9,8 @@ using VMRent.Repositories;
 
 namespace VMRent.Stores
 {
-    public class UserStore: IUserStore<User>, IUserEmailStore<User>, IUserPhoneNumberStore<User>,
-        IUserTwoFactorStore<User>, IUserPasswordStore<User>, IUserRoleStore<User>, IUserLockoutStore<User>
+    public class UserStore: IUserStore<User>, IUserEmailStore<User>, IUserPhoneNumberStore<User>, 
+        IUserPasswordStore<User>, IUserRoleStore<User>, IUserLockoutStore<User>, IQueryableUserStore<User>
     {
         private readonly IUserRepository _userRepository;
 
@@ -35,7 +35,8 @@ namespace VMRent.Stores
         
         public async Task<IdentityResult> CreateAsync(User user, CancellationToken cancellationToken)
         {
-            _userRepository.Add(user);
+            var u = _userRepository.Add(user);
+            user.Id = u.Id;
             return IdentityResult.Success;
         }
 
@@ -56,31 +57,29 @@ namespace VMRent.Stores
 
         public async Task<string> GetNormalizedUserNameAsync(User user, CancellationToken cancellationToken)
         {
-            return _userRepository.Get(user.Id).NormalizedUserName;
+            return user.NormalizedUserName;
         }
 
         public async Task<string> GetUserIdAsync(User user, CancellationToken cancellationToken)
         {
-            return _userRepository.Get(user.Id).Id;
+            return user.Id;
         }
 
         public async Task<string> GetUserNameAsync(User user, CancellationToken cancellationToken)
         {
-            return _userRepository.Get(user.Id).UserName;
+            return user.UserName;
         }
 
         public async Task SetNormalizedUserNameAsync(User user, string normalizedName, CancellationToken cancellationToken)
         {
-            var uUser = _userRepository.Get(user.Id);
-            uUser.NormalizedUserName = normalizedName;
-            _userRepository.Update(uUser);
+            user.NormalizedUserName = normalizedName;
+            _userRepository.Update(user);
         }
 
         public async Task SetUserNameAsync(User user, string userName, CancellationToken cancellationToken)
         {
-            var uUser = _userRepository.Get(user.Id);
-            uUser.UserName = userName;
-            _userRepository.Update(uUser);
+            user.UserName = userName;
+            _userRepository.Update(user);
         }
 
         public async Task<IdentityResult> UpdateAsync(User user, CancellationToken cancellationToken)
@@ -95,37 +94,42 @@ namespace VMRent.Stores
         
         public async Task<User> FindByEmailAsync(string normalizedEmail, CancellationToken cancellationToken)
         {
-            throw new System.NotImplementedException();
+            bool Predicate(User user) =>
+                user.NormalizedEmail.Equals(normalizedEmail);
+            return _userRepository.GetAll(Predicate).FirstOrDefault();
         }
 
         public async Task<string> GetEmailAsync(User user, CancellationToken cancellationToken)
         {
-            throw new System.NotImplementedException();
+            return user.Email;
         }
 
         public async Task<bool> GetEmailConfirmedAsync(User user, CancellationToken cancellationToken)
         {
-            throw new System.NotImplementedException();
+            return user.EmailConfirmed;
         }
 
         public async Task<string> GetNormalizedEmailAsync(User user, CancellationToken cancellationToken)
         {
-            throw new System.NotImplementedException();
+            return user.NormalizedEmail;
         }
 
         public async Task SetEmailAsync(User user, string email, CancellationToken cancellationToken)
         {
-            throw new System.NotImplementedException();
+            user.Email = email;
+            _userRepository.Update(user);
         }
 
         public async Task SetEmailConfirmedAsync(User user, bool confirmed, CancellationToken cancellationToken)
         {
-            throw new System.NotImplementedException();
+            user.EmailConfirmed = confirmed;
+            _userRepository.Update(user);
         }
 
         public async Task SetNormalizedEmailAsync(User user, string normalizedEmail, CancellationToken cancellationToken)
         {
-            throw new System.NotImplementedException();
+            user.NormalizedEmail = normalizedEmail;
+            _userRepository.Update(user);
         }
         
         #endregion
@@ -144,16 +148,14 @@ namespace VMRent.Stores
 
         public async Task SetPhoneNumberAsync(User user, string phoneNumber, CancellationToken cancellationToken)
         {
-            var rUser = _userRepository.Get(user.Id);
-            rUser.PhoneNumber = phoneNumber;
-            _userRepository.Update(rUser);
+            user.PhoneNumber = phoneNumber;
+            _userRepository.Update(user);
         }
 
         public async Task SetPhoneNumberConfirmedAsync(User user, bool confirmed, CancellationToken cancellationToken)
         {
-            var rUser = _userRepository.Get(user.Id);
-            rUser.PhoneNumberConfirmed = confirmed;
-            _userRepository.Update(rUser);
+            user.PhoneNumberConfirmed = confirmed;
+            _userRepository.Update(user);
         }
 
         #endregion
@@ -177,22 +179,30 @@ namespace VMRent.Stores
         
         #region IUserPasswordStore
 
-        public async Task<string> GetPasswordHashAsync(User user, CancellationToken cancellationToken)
+        public Task<string> GetPasswordHashAsync(User user, CancellationToken cancellationToken)
         {
-            var rUser = _userRepository.Get(user.Id);
-            return rUser.PasswordHash;
+            if (user == null)
+            {
+                throw new ArgumentNullException(nameof(user));
+            }
+
+            return Task.FromResult(user.PasswordHash);
         }
 
-        public async Task<bool> HasPasswordAsync(User user, CancellationToken cancellationToken)
+        public Task<bool> HasPasswordAsync(User user, CancellationToken cancellationToken)
         {
-            return !string.IsNullOrEmpty(_userRepository.Get(user.Id).PasswordHash);
+            return Task.FromResult(user.PasswordHash != null);
         }
 
-        public async Task SetPasswordHashAsync(User user, string passwordHash, CancellationToken cancellationToken)
+        public Task SetPasswordHashAsync(User user, string passwordHash, CancellationToken cancellationToken)
         {
-            var copy = _userRepository.Get(user.Id);
-            copy.PasswordHash = passwordHash;
-            _userRepository.Update(copy);
+            if (user == null)
+            {
+                throw new ArgumentNullException(nameof(user));
+            }
+
+            user.PasswordHash = passwordHash;
+            return Task.FromResult(0);
         }
 
         #endregion
@@ -201,30 +211,55 @@ namespace VMRent.Stores
         
         public async Task AddToRoleAsync(User user, string roleName, CancellationToken cancellationToken)
         {
-            bool Predicate(Role r) => 
-                string.Equals(r.Name, roleName, StringComparison.CurrentCultureIgnoreCase);
-            var rRole = _roleRepository.GetAll(Predicate).FirstOrDefault();
-            var rUser = _userRepository.Get(user.Id);
-            if (rRole != null && rUser != null)
+            if (user == null)
             {
-                var userRole = new UserRole
-                {
-                    User = rUser,
-                    Role = rRole
-                };
-                _userRoleRepository.Add(userRole);
+                throw new ArgumentNullException(nameof(user));
             }
+
+            if (string.IsNullOrWhiteSpace(roleName))
+            {
+                throw new ArgumentNullException(nameof(roleName));
+            }
+
+            //var role = await _roleStore.FindByNameAsync(roleName.Normalize(), cancellationToken);
+            var role = _roleRepository
+                .GetAll(r => string.Equals(r.Name.ToUpper(), roleName.ToUpper())).FirstOrDefault();
+            if (role == null)
+            {
+                throw new InvalidOperationException("Role not found");
+            }
+
+            var userRole = new UserRole
+            {
+                Role = role,
+                User = user
+            };
+            _userRoleRepository.Add(userRole);
         }
 
         public async Task<IList<string>> GetRolesAsync(User user, CancellationToken cancellationToken)
         {
-            bool Predicate(UserRole userRole) =>
-                userRole.User.Id.Equals(user.Id);
-            return _userRoleRepository.GetAll(Predicate).Select(userRole => userRole.Role.Name).ToList();
+//            bool Predicate(UserRole userRole) =>
+//                userRole.User.Id.Equals(user.Id);
+//            return _userRoleRepository.GetAll(Predicate).Select(userRole => userRole.Role.Name).ToList();
+            if (user == null)
+            {
+                throw new ArgumentNullException(nameof(user));
+            }
+
+            var roles = _userRoleRepository
+                .GetAll(userRole => userRole.User.Id.Equals(user.Id))
+                .Select(userRole => userRole.Role.Name).ToList();
+            return roles;
         }
 
         public async Task<IList<User>> GetUsersInRoleAsync(string roleName, CancellationToken cancellationToken)
         {
+            if (string.IsNullOrWhiteSpace(roleName))
+            {
+                throw new ArgumentNullException(nameof(roleName));
+            }
+            
             bool Predicate(UserRole userRole) =>
                 userRole.Role.Name.ToUpper().Equals(roleName.ToUpper());
             return _userRoleRepository.GetAll(Predicate).Select(userRole => userRole.User).ToList();
@@ -254,22 +289,22 @@ namespace VMRent.Stores
 
         public async Task<int> GetAccessFailedCountAsync(User user, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            return 0;
         }
 
         public async Task<bool> GetLockoutEnabledAsync(User user, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            return user.LockoutEnabled;
         }
 
         public async Task<DateTimeOffset?> GetLockoutEndDateAsync(User user, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            return user.LockoutEnd;
         }
 
         public async Task<int> IncrementAccessFailedCountAsync(User user, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            return 0;
         }
 
         public async Task ResetAccessFailedCountAsync(User user, CancellationToken cancellationToken)
@@ -279,14 +314,22 @@ namespace VMRent.Stores
 
         public async Task SetLockoutEnabledAsync(User user, bool enabled, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            user.LockoutEnabled = enabled;
+            _userRepository.Update(user);
         }
 
         public async Task SetLockoutEndDateAsync(User user, DateTimeOffset? lockoutEnd, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            user.LockoutEnd = lockoutEnd;
+            _userRepository.Update(user);
         }
         
+        #endregion
+
+        #region IQueryableUserStore
+
+        public IQueryable<User> Users => _userRepository.GetAll().ToList().AsQueryable();
+
         #endregion
     }
 }

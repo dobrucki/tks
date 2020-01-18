@@ -1,0 +1,51 @@
+@using System.Collections.Immutable
+@using System.Linq
+@using System.Text
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Mvc.Rendering
+@using VMRent.Models
+@model VMRent.ViewModels.ListUserViewModel
+@inject UserManager<User> UserManager;
+@inject RoleManager<Role> RoleManager;
+
+@{
+    ViewBag.Title = "Users";
+}
+
+<div class="container mt-2">
+    <h2>Users</h2>
+    <table class="table table-hover">
+        <thead>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Phone number</th>
+        <th>Access level (roles)</th>
+        <th></th>
+        </thead>
+        <tbody>
+        @foreach (var user in Model.Users)
+        {
+            <tr>
+                <td>@user.UserName</td>
+                <td>@user.Email</td>
+                <td>@user.PhoneNumber</td>
+                <td>
+                    @{
+                        string rolesNames;
+                        var roles = UserManager.GetRolesAsync(user).Result;
+                        rolesNames = roles.Any() ? roles.ToImmutableSortedSet().Aggregate((i, j) => i + ", " + j): string.Empty;
+                    }
+                    @rolesNames
+                </td>
+                
+                <td>
+                    @Html.ActionLink("Add role", "AddToRole", "User", new {id = user.Id}) |
+                    @Html.ActionLink("Remove role", "RemoveFromRole", "User", new {id = user.Id}) |
+                    @Html.ActionLink("Edit", "Edit", "User", new {id = user.Id})
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+

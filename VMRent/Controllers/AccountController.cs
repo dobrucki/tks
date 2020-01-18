@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -10,9 +11,12 @@ namespace VMRent.Controllers
     {
         private SignInManager<User> _signInManager;
 
-        public AccountController(SignInManager<User> signInManager)
+        private UserManager<User> _userManager;
+
+        public AccountController(SignInManager<User> signInManager, UserManager<User> userManager)
         {
             _signInManager = signInManager;
+            _userManager = userManager;
         }
 
         #region Login
@@ -35,7 +39,7 @@ namespace VMRent.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            ModelState.AddModelError(string.Empty, "Provided credentials are incorrect. ");
+            ModelState.AddModelError(string.Empty, "Invalid login attempt.");
 
             return View(viewModel);
         }
@@ -58,13 +62,31 @@ namespace VMRent.Controllers
         [HttpGet]
         public async Task<IActionResult> Register()
         {
-            
+            return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Register()
+        public async Task<IActionResult> Register(RegisterUserViewModel viewModel)
         {
+            if (!ModelState.IsValid) return View(viewModel);
+            var user = new User
+            {
+                UserName = viewModel.UserName,
+                Email = viewModel.Email,
+                EmailConfirmed = true,
+                Active = false,
+                PhoneNumber = viewModel.PhoneNumber
+            };
+
+            var result = await _userManager.CreateAsync(user, viewModel.Password);
+
+            if (!result.Succeeded) return View(viewModel);
             
+            //await _signInManager.SignInAsync(user, isPersistent: false);
+            //await _userManager.SetLockoutEnabledAsync(user, true);
+            //await _userManager.SetLockoutEndDateAsync(user, DateTimeOffset.Now.AddYears(100));
+            
+            return RedirectToAction("Index", "Home");
         }
 
         #endregion

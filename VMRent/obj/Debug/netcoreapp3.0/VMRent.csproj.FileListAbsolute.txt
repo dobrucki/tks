@@ -31,3 +31,9 @@
 /Users/dobrucki/dev/VMRent/VMRent/bin/Debug/netcoreapp3.0/VMRent.Views.pdb
 /Users/dobrucki/dev/VMRent/VMRent/obj/Debug/netcoreapp3.0/VMRent.Views.pdb
 /Users/dobrucki/dev/VMRent/VMRent/obj/Debug/netcoreapp3.0/VMRent.csproj.CopyComplete
+/Users/dobrucki/dev/VMRent/VMRent/obj/Debug/netcoreapp3.0/Razor/Views/Account/Register.cshtml.g.cs
+/Users/dobrucki/dev/VMRent/VMRent/obj/Debug/netcoreapp3.0/Razor/Views/User/All.cshtml.g.cs
+/Users/dobrucki/dev/VMRent/VMRent/obj/Debug/netcoreapp3.0/Razor/Views/User/Details.cshtml.g.cs
+/Users/dobrucki/dev/VMRent/VMRent/obj/Debug/netcoreapp3.0/Razor/Views/User/Edit.cshtml.g.cs
+/Users/dobrucki/dev/VMRent/VMRent/obj/Debug/netcoreapp3.0/Razor/Views/User/AddToRole.cshtml.g.cs
+/Users/dobrucki/dev/VMRent/VMRent/obj/Debug/netcoreapp3.0/Razor/Views/User/RemoveFromRole.cshtml.g.cs

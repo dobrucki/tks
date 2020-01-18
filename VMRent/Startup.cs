@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using VMRent.Managers;
 using VMRent.Models;
 using VMRent.Repositories;
 using VMRent.Stores;
@@ -29,8 +30,6 @@ namespace VMRent
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc(options => { options.EnableEndpointRouting = false; });
-
             # region Repository pattern DI
             services.AddSingleton<IUserRepository, MemoryUserRepository>();
             services.AddSingleton<IRoleRepository, MemoryRoleRepository>();
@@ -42,10 +41,19 @@ namespace VMRent
             services.AddTransient<IUserStore<User>, UserStore>();
             services.AddTransient<IRoleStore<Role>, RoleStore>();
 
-            services.AddTransient<SignInManager<User>>();
+            services.AddTransient<SignInManager<User>, SignInManager>();
+            services.AddTransient<UserManager<User>>();
  
-            services.AddIdentity<User, Role>()
+            services.AddIdentity<User, Role>(options =>
+                {
+                    options.User.RequireUniqueEmail = true;
+                })
                 .AddDefaultTokenProviders();
+
+            services.AddAuthentication();
+            services.AddAuthorization();
+            
+            services.AddMvc(options => { options.EnableEndpointRouting = false; });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

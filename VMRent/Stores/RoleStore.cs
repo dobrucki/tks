@@ -1,12 +1,21 @@
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using VMRent.Models;
+using VMRent.Repositories;
 
 namespace VMRent.Stores
 {
-    public class RoleStore : IRoleStore<Role>
+    public class RoleStore : IRoleStore<Role>, IQueryableRoleStore<Role>
     {
+        private IRoleRepository _roleRepository;
+
+        public RoleStore(IRoleRepository roleRepository)
+        {
+            _roleRepository = roleRepository;
+        }
+
         public void Dispose()
         {
             // Nothing to dispose
@@ -65,6 +74,11 @@ namespace VMRent.Stores
         }
 
         #endregion
-        
+
+        #region IQueryableRoleStore
+
+        public IQueryable<Role> Roles => _roleRepository.GetAll().AsQueryable();
+
+        #endregion
     }
 }

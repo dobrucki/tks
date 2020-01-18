@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 
 namespace VMRent.Models
@@ -28,5 +29,7 @@ namespace VMRent.Models
         public bool LockoutEnabled { get; set; }
         
         public DateTimeOffset? LockoutEnd { get; set; }
+        
+        public bool Active { get; set; }
     }
 }

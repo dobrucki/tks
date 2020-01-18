@@ -9,6 +9,61 @@ namespace VMRent.Repositories
     {
         private readonly Dictionary<Guid, UserRole> _ctx = new Dictionary<Guid, UserRole>();
 
+        public MemoryUserRoleRepository()
+        {
+            _ctx.Add(Guid.Parse("b0307dfe-0501-4ec2-a8f2-a9e72726b367"), new UserRole
+            {
+                Id = "b0307dfe-0501-4ec2-a8f2-a9e72726b367",
+                Role = new Role
+                {
+                    Id = "c2a365aa-3407-4ebb-859b-e481326a06d4",
+                    Name = "Administrator",
+                    NormalizedName = "Administrator".ToUpper()
+                },
+                User = new User
+                {
+                    Id = "782b8a8c-60f7-46f1-9641-44b6e2f36ee9",
+                    Email = "user@example.com",
+                    EmailConfirmed = true,
+                    NormalizedEmail = "user@example.com".ToUpper(),
+                    UserName = "user",
+                    NormalizedUserName = "USER",
+                    PasswordHash = "AQAAAAEAACcQAAAAELchcUyDbMj+/SMAB1IOBEijR4b4UoHGpJTK8A7qokIVX4uHE0Jmjwypltx/sdyn5w==",
+                    PhoneNumber = "123123123",
+                    TwoFactorEnabled = false,
+                    LockoutEnabled = false,
+                    LockoutEnd = null,
+                    Active = true
+                }
+            });
+
+            _ctx.Add(Guid.Parse("b8c3a7c3-8506-4804-af6a-90f701974881"), new UserRole
+            {
+                Id = "b8c3a7c3-8506-4804-af6a-90f701974881",
+                Role =  new Role
+                {
+                    Id = "53c3a39d-0ee5-431c-aa8d-d11be2685a44",
+                    Name = "Employee",
+                    NormalizedName = "Administrator".ToUpper()
+                },
+                User = new User
+                {
+                    Id = "782b8a8c-60f7-46f1-9641-44b6e2f36ee9",
+                    Email = "user@example.com",
+                    EmailConfirmed = true,
+                    NormalizedEmail = "user@example.com".ToUpper(),
+                    UserName = "user",
+                    NormalizedUserName = "USER",
+                    PasswordHash = "AQAAAAEAACcQAAAAELchcUyDbMj+/SMAB1IOBEijR4b4UoHGpJTK8A7qokIVX4uHE0Jmjwypltx/sdyn5w==",
+                    PhoneNumber = "123123123",
+                    TwoFactorEnabled = false,
+                    LockoutEnabled = false,
+                    LockoutEnd = null,
+                    Active = true
+                }
+            });
+        }
+
         public UserRole Add(UserRole userRole)
         {
             var id = Guid.NewGuid();
@@ -60,7 +115,7 @@ namespace VMRent.Repositories
 
         public void Update(UserRole userRole)
         {
-            var innerUserRole = Get(userRole.Id);
+            var innerUserRole = _ctx[Guid.Parse(userRole.Id)];
             if (innerUserRole == null) return;
             var tmpUserRole = userRole.DeepClone();
             innerUserRole.User = tmpUserRole.User;
@@ -69,7 +124,7 @@ namespace VMRent.Repositories
 
         public void Delete(UserRole userRole)
         {
-            var innerRole = Get(userRole.Id);
+            var innerRole = _ctx[Guid.Parse(userRole.Id)];
             if (innerRole == null) return;
             try
             {

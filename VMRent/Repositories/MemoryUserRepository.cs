@@ -13,19 +13,20 @@ namespace VMRent.Repositories
         {
             var user = new User
             {
-                Email = "user@example.com",
+                Id = "782b8a8c-60f7-46f1-9641-44b6e2f36ee9",
+                Email = "admin@example.com",
                 EmailConfirmed = true,
-                NormalizedEmail = "user@example.com".ToUpper(),
-                UserName = "user",
-                NormalizedUserName = "USER",
+                NormalizedEmail = "admin@example.com".ToUpper(),
+                UserName = "admin",
+                NormalizedUserName = "admin".ToUpper(),
                 PasswordHash = "AQAAAAEAACcQAAAAELchcUyDbMj+/SMAB1IOBEijR4b4UoHGpJTK8A7qokIVX4uHE0Jmjwypltx/sdyn5w==",
-                PhoneNumber = "123123123",
-                Id = Guid.NewGuid().ToString(),
+                PhoneNumber = "+48-795-5556-36",
                 TwoFactorEnabled = false,
                 LockoutEnabled = false,
-                LockoutEnd = null
+                LockoutEnd = null,
+                Active = true
             };
-            Add(user);
+            _ctx.Add(Guid.Parse("782b8a8c-60f7-46f1-9641-44b6e2f36ee9"), user);
         }
 
         public User Add(User user)
@@ -78,7 +79,7 @@ namespace VMRent.Repositories
 
         public void Update(User user)
         {
-            var innerUser = Get(user.Id);
+            var innerUser = _ctx[Guid.Parse(user.Id)];
             if (innerUser == null) return;
             innerUser.Email = user.Email;
             innerUser.EmailConfirmed = user.EmailConfirmed;
@@ -91,6 +92,7 @@ namespace VMRent.Repositories
             innerUser.UserName = user.UserName;
             innerUser.LockoutEnabled = user.LockoutEnabled;
             innerUser.LockoutEnd = user.LockoutEnd;
+            innerUser.Active = user.Active;
         }
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using VMRent.Models;
 
 namespace VMRent.Repositories
@@ -8,6 +9,28 @@ namespace VMRent.Repositories
     public class MemoryRoleRepository : IRoleRepository
     {
         private readonly Dictionary<Guid, Role> _ctx = new Dictionary<Guid, Role>();
+
+        public MemoryRoleRepository()
+        {
+            _ctx.Add(Guid.Parse("c2a365aa-3407-4ebb-859b-e481326a06d4"), new Role
+            {
+                Id = "c2a365aa-3407-4ebb-859b-e481326a06d4",
+                Name = "Administrator",
+                NormalizedName = "Administrator".ToUpper()
+            });
+            _ctx.Add(Guid.Parse("53c3a39d-0ee5-431c-aa8d-d11be2685a44"), new Role
+            {
+                Id = "53c3a39d-0ee5-431c-aa8d-d11be2685a44",
+                Name = "Employee",
+                NormalizedName = "Administrator".ToUpper()
+            });
+            _ctx.Add(Guid.Parse("cf36325f-3e68-4ffa-bd60-cae4d82a2e64"), new Role
+            {
+                Id = "cf36325f-3e68-4ffa-bd60-cae4d82a2e64",
+                Name = "Customer",
+                NormalizedName = "Administrator".ToUpper()
+            });
+        }
 
         public Role Add(Role role)
         {
@@ -59,7 +82,7 @@ namespace VMRent.Repositories
 
         public void Update(Role role)
         {
-            var innerRole = Get(role.Id);
+            var innerRole = _ctx[Guid.Parse(role.Id)];
             if (innerRole == null) return;
             innerRole.Name = role.Name;
             innerRole.NormalizedName = role.NormalizedName;
@@ -67,7 +90,7 @@ namespace VMRent.Repositories
 
         public void Delete(Role role)
         {
-            var innerRole = Get(role.Id);
+            var innerRole = _ctx[Guid.Parse(role.Id)];
             if (innerRole == null) return;
             try
             {

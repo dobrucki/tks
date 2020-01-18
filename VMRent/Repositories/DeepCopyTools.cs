@@ -29,7 +29,8 @@ namespace VMRent.Repositories
                 TwoFactorEnabled = user.TwoFactorEnabled,
                 UserName = user.UserName,
                 LockoutEnabled = user.LockoutEnabled,
-                LockoutEnd = user.LockoutEnd
+                LockoutEnd = user.LockoutEnd,
+                Active = user.Active
             };
         }
         

@@ -5,10 +5,15 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VMRent/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VMRent/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VMRent/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VMRent/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VMRent/Controllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Controllers/AccountController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/Models/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Models/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/Repositories/DeepCopyTools.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Repositories/DeepCopyTools.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/Repositories/MemoryRoleRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Repositories/MemoryRoleRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VMRent/Repositories/MemoryUserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Repositories/MemoryUserRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/Repositories/MemoryUserRoleRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Repositories/MemoryUserRoleRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VMRent/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/Stores/RoleStore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Stores/RoleStore.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VMRent/Stores/UserStore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Stores/UserStore.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VMRent/ViewModels/LoginUserViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/ViewModels/LoginUserViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/ViewModels/RegisterUserViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/ViewModels/RegisterUserViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VMRent/Views/Account/Login.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Views/Account/Login.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VMRent/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Views/Shared/_Layout.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VMRent/bin/Debug/netcoreapp3.0/VMRent.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/bin/Debug/netcoreapp3.0/VMRent.Views.dll" afterDir="false" />
@@ -17,8 +22,10 @@
       <change beforePath="$PROJECT_DIR$/VMRent/bin/Debug/netcoreapp3.0/VMRent.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/bin/Debug/netcoreapp3.0/VMRent.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/Razor/Views/Account/Login.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/Razor/Views/Account/Login.cshtml.g.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/Razor/Views/Shared/_Layout.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/Razor/Views/Shared/_Layout.cshtml.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.RazorCoreGenerate.cache" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.RazorCoreGenerate.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.Views.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.Views.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.dll" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.pdb" afterDir="false" />
     </list>
@@ -32,15 +39,13 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/VMRent/Views/Account/Login.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/VMRent/ViewModels/LoginUserViewModel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/VMRent/Startup.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/VMRent/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/VMRent/Models/User.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/VMRent/Models/Role.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VMRent/ViewModels/RegisterUserViewModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/VMRent/Stores/UserStore.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/VMRent/Stores/RoleStore.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/VMRent/Repositories/IUserRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VMRent/Views/User/RemoveFromRole.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/VMRent/Repositories/IRoleRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/VMRent/Repositories/IUserRoleRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/VMRent/Repositories/IVmRepository.cs" root0="FORCE_HIGHLIGHTING" />
@@ -50,31 +55,40 @@
     <setting file="file://$PROJECT_DIR$/VMRent/Repositories/MemoryUserRoleRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/VMRent/Models/UserRole.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/VMRent/Repositories/DeepCopyTools.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VMRent/Views/User/All.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/VMRent/Repositories/MemoryVmRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VMRent/ViewModels/ListUserViewModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/VMRent/Models/Vm.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VMRent/Controllers/UserController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/VMRent/Models/UserVm.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/VMRent/Controllers/HomeController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/VMRent/Repositories/MemoryUserVmRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VMRent/Views/Account/Register.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BE8038EF-19C1-49E5-B4A0-4E4B12C00CFA/ff/e50e7eb4/UserManager`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/VMRent/Views/Home/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/VMRent/Views/Shared/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/VMRent/Views/_ViewImports.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/VMRent/Views/_ViewStart.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/VMRent/Controllers/AccountController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VMRent/Views/Account/Login.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VMRent/ViewModels/LoginUserViewModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VMRent/Startup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VMRent/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VMRent/ViewModels/DetailUserViewModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VMRent/Views/User/Details.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VMRent/ViewModels/EditUserViewModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VMRent/Views/User/Edit.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VMRent/Managers/SignInManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VMRent/ViewModels/ModifyUserRolesViewModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VMRent/Views/User/AddToRole.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/VMRent/Controllers/Home.cs" />
-        <option value="$PROJECT_DIR$/VMRent/Controllers/HomeController.cs" />
-        <option value="$PROJECT_DIR$/VMRent/Views/Home/Index.cshtml.cs" />
-        <option value="$PROJECT_DIR$/VMRent/Views/Shared/_Layout.cshtml.cs" />
-        <option value="$PROJECT_DIR$/VMRent/Views/_ViewImports.cshtml.cs" />
-        <option value="$PROJECT_DIR$/VMRent/Views/_ViewStart.cshtml.cs" />
         <option value="$PROJECT_DIR$/VMRent/Views/Account.cs" />
         <option value="$PROJECT_DIR$/VMRent/Views/_ViewStart.cshtml" />
         <option value="$PROJECT_DIR$/VMRent/Views/_ViewImports.cshtml" />
         <option value="$PROJECT_DIR$/VMRent/Views/Home/Index.cshtml" />
-        <option value="$PROJECT_DIR$/VMRent/Models/User.cs" />
         <option value="$PROJECT_DIR$/VMRent/Models/Role.cs" />
         <option value="$PROJECT_DIR$/VMRent/Services/UserStoreService.cs" />
         <option value="$PROJECT_DIR$/VMRent/Services/RoleStoreService.cs" />
@@ -83,7 +97,6 @@
         <option value="$PROJECT_DIR$/VMRent/Repositories/IRoleRepository.cs" />
         <option value="$PROJECT_DIR$/VMRent/Repositories/IUserRoleRepository.cs" />
         <option value="$PROJECT_DIR$/VMRent/Models/UserRole.cs" />
-        <option value="$PROJECT_DIR$/VMRent/Repositories/MemoryRoleRepository.cs" />
         <option value="$PROJECT_DIR$/VMRent/Repositories/IVMRepository.cs" />
         <option value="$PROJECT_DIR$/VMRent/Repositories/MemoryVMRepository.cs" />
         <option value="$PROJECT_DIR$/VMRent/Repositories/IUserVmRepository.cs" />
@@ -92,19 +105,37 @@
         <option value="$PROJECT_DIR$/VMRent/Models/Vm.cs" />
         <option value="$PROJECT_DIR$/VMRent/Repositories/MemoryVmRepository.cs" />
         <option value="$PROJECT_DIR$/VMRent/Repositories/MemoryUserVmRepository.cs" />
-        <option value="$PROJECT_DIR$/VMRent/Repositories/DeepCopyTools.cs" />
         <option value="$PROJECT_DIR$/VMRent/Stores/RoleStoreService.cs" />
-        <option value="$PROJECT_DIR$/VMRent/Repositories/MemoryUserRoleRepository.cs" />
-        <option value="$PROJECT_DIR$/VMRent/Stores/RoleStore.cs" />
         <option value="$PROJECT_DIR$/VMRent/Stores/UserRoleStore.cs" />
         <option value="$PROJECT_DIR$/VMRent/Repositories/IUserRepository.cs" />
-        <option value="$PROJECT_DIR$/VMRent/Stores/UserStore.cs" />
-        <option value="$PROJECT_DIR$/VMRent/Repositories/MemoryUserRepository.cs" />
-        <option value="$PROJECT_DIR$/VMRent/Startup.cs" />
-        <option value="$PROJECT_DIR$/VMRent/Views/Shared/_Layout.cshtml" />
-        <option value="$PROJECT_DIR$/VMRent/Views/Account/Login.cshtml" />
-        <option value="$PROJECT_DIR$/VMRent/Controllers/AccountController.cs" />
         <option value="$PROJECT_DIR$/VMRent/ViewModels/LoginUserViewModel.cs" />
+        <option value="$PROJECT_DIR$/VMRent/ViewModels/RegisterUserViewModel.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Views/Account/Register.cshtml" />
+        <option value="$PROJECT_DIR$/VMRent/Models/User.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Repositories/DeepCopyTools.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Managers/MyUserManager.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Managers/UserManager.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Startup.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Managers/SignInManager.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Controllers/AccountController.cs" />
+        <option value="$PROJECT_DIR$/VMRent/ViewModels/ListUserViewModel.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Stores/RoleStore.cs" />
+        <option value="$PROJECT_DIR$/VMRent/ViewModels/DetailUserViewModel.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Views/User/Details.cshtml" />
+        <option value="$PROJECT_DIR$/VMRent/ViewModels/EditUserViewModel.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Views/User/Edit.cshtml" />
+        <option value="$PROJECT_DIR$/VMRent/Repositories/MemoryUserRepository.cs" />
+        <option value="$PROJECT_DIR$/VMRent/ViewModels/AddToRoleViewModel.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Views/User/AddToRole.cshtml" />
+        <option value="$PROJECT_DIR$/VMRent/Stores/UserStore.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Repositories/MemoryUserRoleRepository.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Repositories/MemoryRoleRepository.cs" />
+        <option value="$PROJECT_DIR$/VMRent/ViewModels/ModifyUserRolesViewModel.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Views/User/RemoveFromRole.cshtml" />
+        <option value="$PROJECT_DIR$/VMRent/Controllers/UserController.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Views/User/All.cshtml" />
+        <option value="$PROJECT_DIR$/VMRent/Views/Account/Login.cshtml" />
+        <option value="$PROJECT_DIR$/VMRent/Views/Shared/_Layout.cshtml" />
       </list>
     </option>
   </component>
@@ -168,7 +199,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1579134878014</updated>
-      <workItem from="1579134879550" duration="18398000" />
+      <workItem from="1579134879550" duration="47305000" />
     </task>
     <servers />
   </component>
@@ -196,7 +227,91 @@
           <properties exception="System.Threading.ThreadAbortException" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BE8038EF-19C1-49E5-B4A0-4E4B12C00CFA/ff/e50e7eb4/UserManager`1.cs</url>
+          <line>285</line>
+          <properties documentPath="$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BE8038EF-19C1-49E5-B4A0-4E4B12C00CFA/ff/e50e7eb4/UserManager`1.cs" initialLine="285">
+            <startOffsets>
+              <option value="8849" />
+            </startOffsets>
+            <endOffsets>
+              <option value="8883" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BE8038EF-19C1-49E5-B4A0-4E4B12C00CFA/ff/e50e7eb4/UserManager`1.cs</url>
+          <line>1627</line>
+          <properties documentPath="$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BE8038EF-19C1-49E5-B4A0-4E4B12C00CFA/ff/e50e7eb4/UserManager`1.cs" initialLine="1627">
+            <startOffsets>
+              <option value="63746" />
+            </startOffsets>
+            <endOffsets>
+              <option value="63793" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BE8038EF-19C1-49E5-B4A0-4E4B12C00CFA/ff/e50e7eb4/UserManager`1.cs</url>
+          <line>1628</line>
+          <properties documentPath="$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BE8038EF-19C1-49E5-B4A0-4E4B12C00CFA/ff/e50e7eb4/UserManager`1.cs" initialLine="1628">
+            <startOffsets>
+              <option value="63800" />
+            </startOffsets>
+            <endOffsets>
+              <option value="63844" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BE8038EF-19C1-49E5-B4A0-4E4B12C00CFA/ff/e50e7eb4/UserManager`1.cs</url>
+          <line>1629</line>
+          <properties documentPath="$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BE8038EF-19C1-49E5-B4A0-4E4B12C00CFA/ff/e50e7eb4/UserManager`1.cs" initialLine="1629">
+            <startOffsets>
+              <option value="63851" />
+            </startOffsets>
+            <endOffsets>
+              <option value="63917" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/VMRent/Stores/UserStore.cs</url>
+          <line>86</line>
+          <properties documentPath="$PROJECT_DIR$/VMRent/Stores/UserStore.cs" initialLine="86">
+            <startOffsets>
+              <option value="2933" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2962" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/VMRent/Stores/UserStore.cs</url>
+          <line>87</line>
+          <properties documentPath="$PROJECT_DIR$/VMRent/Stores/UserStore.cs" initialLine="87">
+            <startOffsets>
+              <option value="2975" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3005" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <reveal-manager>
+      <revealed-members>
+        <RevealItemInfo typeName="VMRent.Models.User" fieldName="PhoneNumber" />
+        <RevealItemInfo typeName="VMRent.Models.User" fieldName="Id" />
+      </revealed-members>
+    </reveal-manager>
   </component>
 </project>
