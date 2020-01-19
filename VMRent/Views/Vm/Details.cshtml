@@ -1,14 +1,13 @@
 @using VMRent.Managers
-@model VMRent.ViewModels.DetailUserViewModel
+@model VMRent.ViewModels.DetailVmViewModel
 
 <div class="container mt-2">
     <h2>Users</h2>
     <table class="table table-hover">
         <thead>
-        <th>Vm</th>
-        <th>Start time</th>
-        <th>End time</th>
-        <th></th>
+            <th>User</th>
+            <th>Start time</th>
+            <th>End time</th>
         </thead>
         <tbody>
         @foreach (var userVm in Model.UserVms)
@@ -18,13 +17,9 @@
                 continue;
             }
             <tr>
-                <td>@userVm.Vm.Name</td>
+                <td>@userVm.User.UserName</td>
                 <td>@userVm.StartTime</td>
                 <td>@userVm.EndTime</td>
-                
-                <td>
-                @Html.ActionLink("Cancel", "CancelReservation", "Reservation", new {id = userVm.Id})
-                </td>
             </tr>
         }
         </tbody>

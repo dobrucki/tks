@@ -2,6 +2,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using VMRent.Managers;
 using VMRent.Models;
 using VMRent.ViewModels;
 
@@ -11,9 +12,12 @@ namespace VMRent.Controllers
     {
         private readonly UserManager<User> _userManager;
 
-        public UserController(UserManager<User> userManager)
+        private readonly ReservationManager _reservationManager;
+
+        public UserController(UserManager<User> userManager, ReservationManager reservationManager)
         {
             _userManager = userManager;
+            _reservationManager = reservationManager;
         }
 
         [HttpGet]
@@ -32,7 +36,8 @@ namespace VMRent.Controllers
             var user = _userManager.Users.FirstOrDefault(u => string.Equals(u.Id, id));
             return View(new DetailUserViewModel
             {
-                
+                User = user,
+                UserVms = _reservationManager.GetReservationsForUserAsync(user).Result
             });
         }
 

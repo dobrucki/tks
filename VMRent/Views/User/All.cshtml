@@ -39,6 +39,7 @@
                 </td>
                 
                 <td>
+                    @Html.ActionLink("Details", "Details", "User", new {id = user.Id}) |
                     @Html.ActionLink("Add role", "AddToRole", "User", new {id = user.Id}) |
                     @Html.ActionLink("Remove role", "RemoveFromRole", "User", new {id = user.Id}) |
                     @Html.ActionLink("Edit", "Edit", "User", new {id = user.Id})

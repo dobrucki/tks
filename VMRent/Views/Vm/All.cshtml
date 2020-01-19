@@ -1,0 +1,51 @@
+@using System.Collections.Immutable
+@using Microsoft.AspNetCore.Identity
+@using VMRent.Models
+@model VMRent.ViewModels.ListVmViewModel
+
+@{
+    ViewBag.Title = "Virtual machines";
+}
+
+<div class="container mt-2">
+    <h2>Users</h2>
+    <table class="table table-hover">
+        <thead>
+            <th>Name</th>
+            <th>Comment</th>
+            <th>Type</th>
+            <th></th>
+        </thead>
+        <tbody>
+        @foreach (var vm in Model.Vms)
+        {
+            <tr>
+                <td>@vm.Name</td>
+                <td>
+                    @{ var text = "-";}
+                    @if (vm.GetType() == typeof(ExtendedVm))
+                    {
+                        var evm = (ExtendedVm) vm;
+                        text = evm.Comment;
+                    }
+                    @text
+                </td>
+                <td>
+                    @{ var type = "Virtual machine";}
+                    @if (vm.GetType() == typeof(ExtendedVm))
+                    {
+                        type = "Extended virtual machine";
+                    }
+                    @type
+                </td>
+                
+                <td>
+                    @Html.ActionLink("Details", "Details", "Vm", new {id = vm.Id}) |
+                    @Html.ActionLink("Reserve", "CreateReservation", "Reservation", new {id = vm.Id})
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+

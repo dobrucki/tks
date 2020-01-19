@@ -43,7 +43,9 @@ namespace VMRent
 
             services.AddTransient<SignInManager<User>, SignInManager>();
             services.AddTransient<UserManager<User>>();
- 
+            services.AddTransient<VmManager>();
+            services.AddTransient<ReservationManager>();
+
             services.AddIdentity<User, Role>(options =>
                 {
                     options.User.RequireUniqueEmail = true;

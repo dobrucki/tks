@@ -29,12 +29,9 @@ namespace VMRent.Managers
                 throw new InvalidOperationException("User does not exist");
             }
 
-            if (!user.Result.Active)
-            {
-                return Task.FromResult<SignInResult>(SignInResult.LockedOut);
-            }
-            
-            return base.PasswordSignInAsync(userName, password, isPersistent, lockoutOnFailure);
+            return !user.Result.Active ? 
+                Task.FromResult(SignInResult.LockedOut) : 
+                base.PasswordSignInAsync(userName, password, isPersistent, lockoutOnFailure);
         }
         
         

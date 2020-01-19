@@ -48,7 +48,18 @@ namespace VMRent.Repositories
         {
             return new Vm
             {
-                Id = vm.Id
+                Id = vm.Id,
+                Name = vm.Name
+            };
+        }
+
+        public static Vm DeepClone(this ExtendedVm vm)
+        {
+            return new ExtendedVm
+            {
+                Id = vm.Id,
+                Name = vm.Name,
+                Comment = vm.Comment
             };
         }
         

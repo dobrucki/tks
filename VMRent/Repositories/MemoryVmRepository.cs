@@ -9,6 +9,23 @@ namespace VMRent.Repositories
     {
         private readonly Dictionary<Guid, Vm> _ctx = new Dictionary<Guid, Vm>();
 
+        public MemoryVmRepository()
+        {
+            var vm = new Vm
+            {
+                Id = Guid.NewGuid().ToString(),
+                Name = "Machine 1"
+            };
+            var exVm = new ExtendedVm
+            {
+                Id = Guid.NewGuid().ToString(),
+                Name = "Machine 2",
+                Comment = "Sample text"
+            };
+            _ctx.Add(Guid.Parse(vm.Id), vm);
+            _ctx.Add(Guid.Parse(exVm.Id), exVm);
+        }
+
         public Vm Add(Vm vm)
         {
             var id = Guid.NewGuid();

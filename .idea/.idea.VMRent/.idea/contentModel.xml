@@ -10,12 +10,17 @@
         <e p="Controllers" t="Include">
           <e p="AccountController.cs" t="Include" />
           <e p="HomeController.cs" t="Include" />
+          <e p="ReservationController.cs" t="Include" />
           <e p="UserController.cs" t="Include" />
+          <e p="VmController.cs" t="Include" />
         </e>
         <e p="Managers" t="Include">
+          <e p="ReservationManager.cs" t="Include" />
           <e p="SignInManager.cs" t="Include" />
+          <e p="VmManager.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
+          <e p="ExtendedVm.cs" t="Include" />
           <e p="Role.cs" t="Include" />
           <e p="User.cs" t="Include" />
           <e p="UserRole.cs" t="Include" />
@@ -52,9 +57,12 @@
           <e p="UserStore.cs" t="Include" />
         </e>
         <e p="ViewModels" t="Include">
+          <e p="CreateReservationViewModel.cs" t="Include" />
           <e p="DetailUserViewModel.cs" t="Include" />
+          <e p="DetailVmViewModel.cs" t="Include" />
           <e p="EditUserViewModel.cs" t="Include" />
           <e p="ListUserViewModel.cs" t="Include" />
+          <e p="ListVmViewModel.cs" t="Include" />
           <e p="LoginUserViewModel.cs" t="Include" />
           <e p="ModifyUserRolesViewModel.cs" t="Include" />
           <e p="RegisterUserViewModel.cs" t="Include" />
@@ -69,6 +77,9 @@
           <e p="Home" t="Include">
             <e p="Index.cshtml" t="Include" />
           </e>
+          <e p="Reservation" t="Include">
+            <e p="CreateReservation.cshtml" t="Include" />
+          </e>
           <e p="Shared" t="Include">
             <e p="_Layout.cshtml" t="Include" />
           </e>
@@ -78,6 +89,10 @@
             <e p="Details.cshtml" t="Include" />
             <e p="Edit.cshtml" t="Include" />
             <e p="RemoveFromRole.cshtml" t="Include" />
+          </e>
+          <e p="Vm" t="Include">
+            <e p="All.cshtml" t="Include" />
+            <e p="Details.cshtml" t="Include" />
           </e>
         </e>
         <e p="VMRent.csproj" t="IncludeRecursive" />
