@@ -24,6 +24,11 @@ namespace VMRent.Managers
         public Task<Vm> CreateVmAsync(string name)
         {
             if (string.IsNullOrEmpty(name)) throw new ArgumentNullException(nameof(name));
+
+            if (_vmRepository
+                .GetAll(i => i.Name.ToUpper().Equals(name.ToUpper())).Any())
+                throw new ArgumentException($"Vm with name {name} already exists");
+            
             var vm = _vmRepository.Add(new Vm
             {
                 Name = name
@@ -36,10 +41,14 @@ namespace VMRent.Managers
             return Task.FromResult(_vmRepository.GetAll(vm => vm.Id.Equals(id)).FirstOrDefault());
         }
 
-        public Task<Vm> CreateExtendedVm(string name, string comment)
+        public Task<Vm> CreateExtendedVmAsync(string name, string comment)
         {
             if (string.IsNullOrEmpty(name)) throw new ArgumentNullException(nameof(name));
             if (string.IsNullOrEmpty(comment)) throw new ArgumentNullException(nameof(comment));
+            
+            if (_vmRepository
+                .GetAll(i => i.Name.ToUpper().Equals(name.ToUpper())).Any())
+                throw new ArgumentException($"Vm with name {name} already exists");
 
             var vm = _vmRepository.Add(new ExtendedVm
             {
