@@ -34,7 +34,7 @@ namespace VMRent.Managers
             if (user is null) throw new ArgumentNullException(nameof(user));
 
             IList<UserVm> list = _userVmRepository
-                .GetAll(uv => uv.User.Id.Equals(user.Id)).ToList();
+                .GetAll(uv => uv.User.Id.Equals(user.Id))?.ToList();
             return Task.FromResult(list);
         }
 
@@ -56,9 +56,11 @@ namespace VMRent.Managers
 
             if (!user.Active) 
                 return await Task.FromResult<UserVm>(null);
-            
-            if (await IsReserved(vm, startTime.Value, endTime.Value)) 
-                return await Task.FromResult<UserVm>(null);
+
+            if (await IsReserved(vm, startTime.Value, endTime.Value))
+            {
+                throw new ArgumentException($"Virtual machine with name {vm.Name} is already reserved");
+            }
             
             var userVm = new UserVm
             {

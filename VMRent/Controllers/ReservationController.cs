@@ -1,4 +1,6 @@
+using System;
 using System.Security.Claims;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using VMRent.Managers;
@@ -31,12 +33,20 @@ namespace VMRent.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateReservation(CreateReservationViewModel viewModel)
+        public async Task<IActionResult> CreateReservation(CreateReservationViewModel viewModel)
         {
             var user = _userManager.GetUserAsync(User).Result;
             var vm = _vmManager.GetVmById(viewModel.VmId).Result;
-            var userVm = _reservationManager
-                .CreateReservationAsync(user, vm, viewModel.StartTime, viewModel.EndTime).Result;
+            try
+            {
+                await _reservationManager.CreateReservationAsync(user, vm, viewModel.StartTime, viewModel.EndTime);
+            }
+            catch (ArgumentException e)
+            {
+                ModelState.AddModelError("", e.Message);
+                return View(viewModel);
+            }
+
             return RedirectToAction("Details", "User", new {id = user.Id});
         }
 

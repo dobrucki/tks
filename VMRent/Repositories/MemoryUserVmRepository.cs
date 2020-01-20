@@ -60,11 +60,10 @@ namespace VMRent.Repositories
 
         public void Update(UserVm userVm)
         {
-            var innerUserVm = Get(userVm.Id);
+            var innerUserVm = _ctx[Guid.Parse(userVm.Id)];
             if (innerUserVm == null) return;
-            var tmpUserVm = userVm.DeepClone();
-            innerUserVm.User = tmpUserVm.User;
-            innerUserVm.Vm = tmpUserVm.Vm;
+            innerUserVm.User = userVm.User?.DeepClone();
+            innerUserVm.Vm = userVm.Vm?.DeepClone();
         }
 
         public void Delete(UserVm userVm)

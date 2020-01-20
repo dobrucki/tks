@@ -2,7 +2,7 @@
 @model VMRent.ViewModels.DetailUserViewModel
 
 <div class="container mt-2">
-    <h2>Users</h2>
+    <h2>Reservations</h2>
     <table class="table table-hover">
         <thead>
         <th>Vm</th>
@@ -11,21 +11,24 @@
         <th></th>
         </thead>
         <tbody>
-        @foreach (var userVm in Model.UserVms)
+        @if (Model.UserVms != null)
         {
-            if (DateTime.UtcNow > userVm.EndTime)
+            foreach (var userVm in Model.UserVms)
             {
-                continue;
+                if (DateTime.UtcNow > userVm.EndTime)
+                {
+                    continue;
+                }
+                <tr>
+                    <td>@userVm.Vm.Name</td>
+                    <td>@userVm.StartTime</td>
+                    <td>@userVm.EndTime</td>
+
+                    <td>
+                        @Html.ActionLink("Cancel", "CancelReservation", "Reservation", new {id = userVm.Id})
+                    </td>
+                </tr>
             }
-            <tr>
-                <td>@userVm.Vm.Name</td>
-                <td>@userVm.StartTime</td>
-                <td>@userVm.EndTime</td>
-                
-                <td>
-                @Html.ActionLink("Cancel", "CancelReservation", "Reservation", new {id = userVm.Id})
-                </td>
-            </tr>
         }
         </tbody>
     </table>

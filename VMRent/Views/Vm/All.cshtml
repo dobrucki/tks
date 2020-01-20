@@ -3,18 +3,20 @@
 @using VMRent.Models
 @model VMRent.ViewModels.ListVmViewModel
 
+@inject UserManager<User> UserManager
+
 @{
     ViewBag.Title = "Virtual machines";
 }
 
 <div class="container mt-2">
-    <h2>Users</h2>
+    <h2>Virtual machines</h2>
     <table class="table table-hover">
         <thead>
-            <th>Name</th>
-            <th>Comment</th>
-            <th>Type</th>
-            <th></th>
+        <th>Name</th>
+        <th>Comment</th>
+        <th>Type</th>
+        <th></th>
         </thead>
         <tbody>
         @foreach (var vm in Model.Vms)
@@ -42,10 +44,21 @@
                 <td>
                     @Html.ActionLink("Details", "Details", "Vm", new {id = vm.Id}) |
                     @Html.ActionLink("Reserve", "CreateReservation", "Reservation", new {id = vm.Id})
+                    @if (UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result, "Administrator").Result)
+                    {
+                        <span> 
+                            | @Html.ActionLink("Edit", "Edit", "Vm", new {id = vm.Id}) | 
+                            @Html.ActionLink("Delete", "Delete", "Vm", new {id = vm.Id})
+                        </span>
+                    }
                 </td>
             </tr>
         }
         </tbody>
     </table>
-</div>
+    <div class="btn-group" role="group">
+        <a asp-action="Create" asp-controller="Vm"
+           type="button" class="btn btn-primary" role="button">Create new Vm</a>
+    </div>
+</div>s
 

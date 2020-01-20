@@ -11,9 +11,12 @@ namespace VMRent.Managers
     {
         private readonly IVmRepository _vmRepository;
 
-        public VmManager(IVmRepository vmRepository)
+        private readonly IUserVmRepository _userVmRepository;
+
+        public VmManager(IVmRepository vmRepository, IUserVmRepository userVmRepository)
         {
             _vmRepository = vmRepository;
+            _userVmRepository = userVmRepository;
         }
 
         public Task<List<Vm>> ListAllVmsAsync()
@@ -61,7 +64,29 @@ namespace VMRent.Managers
         public Task DeleteVm(Vm vm)
         {
             if (vm is null) throw new ArgumentNullException(nameof(vm));
+
+            var userVms = _userVmRepository.GetAll(i => i.Vm.Id.Equals(vm.Id));
+            foreach (var userVm in userVms)
+            {
+                userVm.Vm = null;
+                _userVmRepository.Update(userVm);
+            }
             _vmRepository.Delete(vm);
+            return Task.CompletedTask;
+        }
+
+        public Task UpdateVm(Vm vm)
+        {
+            if (vm is null) throw new ArgumentNullException(nameof(vm));
+
+            if (_vmRepository
+                .GetAll(i => string.Equals(vm.Name, i.Name) && vm.Id != i.Id)
+                .Any())
+            {
+                throw new ArgumentException($"Machine with name {vm.Name} already exists");
+            }
+            
+            _vmRepository.Update(vm);
             return Task.CompletedTask;
         }
     }

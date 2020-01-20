@@ -1,0 +1,65 @@
+@model VMRent.ViewModels.CreateVmViewModel
+
+@{
+    ViewBag.Title = "Create Vm";
+}
+
+<form asp-action="Create" asp-controller="Vm" method="post" class="container-fluid mt-3 p-1 w-50">
+    
+    <div class="form-group">
+        <label asp-for="Name" class="form-label"></label>
+        <div>
+            <input asp-for="Name" class="form-control"/>
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="Type" class="col-sm-2 col-form-label"></label>
+        <select asp-for="Type" class="form-control" id="viewSelector">
+            <option value="">Choose type</option>
+            <option value="Vm">Vm</option>
+            <option value="ExtendedVm">ExtendedVm</option>
+        </select>
+        <span asp-validation-for="Type" class="text-danger"></span>
+        
+    </div>
+    
+
+    <div class="form-group" id="comment">
+        <label asp-for="Comment" class="form-label"></label>
+        <div>
+            <input asp-for="Comment" class="form-control"/>
+            <span asp-validation-for="Comment" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-group row">
+        <button type="submit" class="btn btn-primary">Add</button>
+    </div>
+
+</form> 
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function() {
+          $.viewMap = {
+            '' : $([]),
+            'Vm' : $([]),
+            'ExtendedVm' : $('#comment')
+          };
+        
+          $('#comment').hide();
+          
+          $('#viewSelector').change(function() {
+            // hide all
+            $.each($.viewMap, function() { this.hide(); });
+            // show current
+            $.viewMap[$(this).val()].show();
+          });
+        });
+    </script>
+}

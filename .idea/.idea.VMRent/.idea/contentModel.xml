@@ -58,9 +58,11 @@
         </e>
         <e p="ViewModels" t="Include">
           <e p="CreateReservationViewModel.cs" t="Include" />
+          <e p="CreateVmViewModel.cs" t="Include" />
           <e p="DetailUserViewModel.cs" t="Include" />
           <e p="DetailVmViewModel.cs" t="Include" />
           <e p="EditUserViewModel.cs" t="Include" />
+          <e p="EditVmViewModel.cs" t="Include" />
           <e p="ListUserViewModel.cs" t="Include" />
           <e p="ListVmViewModel.cs" t="Include" />
           <e p="LoginUserViewModel.cs" t="Include" />
@@ -92,7 +94,9 @@
           </e>
           <e p="Vm" t="Include">
             <e p="All.cshtml" t="Include" />
+            <e p="Create.cshtml" t="Include" />
             <e p="Details.cshtml" t="Include" />
+            <e p="Edit.cshtml" t="Include" />
           </e>
         </e>
         <e p="VMRent.csproj" t="IncludeRecursive" />

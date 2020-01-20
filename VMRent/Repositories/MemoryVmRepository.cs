@@ -77,9 +77,13 @@ namespace VMRent.Repositories
 
         public void Update(Vm vm)
         {
-            var innerVm = Get(vm.Id);
+            var innerVm = _ctx[Guid.Parse(vm.Id)];
             if (innerVm == null) return;
-            var tmpVm = vm.DeepClone();
+            innerVm.Name = vm.Name;
+            if (innerVm.GetType() == typeof(ExtendedVm))
+            {
+                ((ExtendedVm) innerVm).Comment = ((ExtendedVm) vm).Comment;
+            } 
         }
 
         public void Delete(Vm vm)

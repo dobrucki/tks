@@ -40,3 +40,5 @@
 /Users/dobrucki/dev/VMRent/VMRent/obj/Debug/netcoreapp3.0/Razor/Views/Vm/All.cshtml.g.cs
 /Users/dobrucki/dev/VMRent/VMRent/obj/Debug/netcoreapp3.0/Razor/Views/Reservation/CreateReservation.cshtml.g.cs
 /Users/dobrucki/dev/VMRent/VMRent/obj/Debug/netcoreapp3.0/Razor/Views/Vm/Details.cshtml.g.cs
+/Users/dobrucki/dev/VMRent/VMRent/obj/Debug/netcoreapp3.0/Razor/Views/Vm/Create.cshtml.g.cs
+/Users/dobrucki/dev/VMRent/VMRent/obj/Debug/netcoreapp3.0/Razor/Views/Vm/Edit.cshtml.g.cs

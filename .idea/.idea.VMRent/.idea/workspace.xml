@@ -2,9 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b823611d-6cef-4d9d-a8f5-ed59dfc95336" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.VMRent/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VMRent/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VMRent/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VMRent/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/Controllers/ReservationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Controllers/ReservationController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/Controllers/VmController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Controllers/VmController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/Managers/ReservationManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Managers/ReservationManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VMRent/Managers/VmManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Managers/VmManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VMRent/Views/Vm/Details.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Views/Vm/Details.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/Repositories/MemoryUserVmRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Repositories/MemoryUserVmRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/Repositories/MemoryVmRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Repositories/MemoryVmRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/Views/User/Details.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Views/User/Details.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/Views/Vm/All.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Views/Vm/All.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/bin/Debug/netcoreapp3.0/VMRent.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/bin/Debug/netcoreapp3.0/VMRent.Views.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/bin/Debug/netcoreapp3.0/VMRent.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/bin/Debug/netcoreapp3.0/VMRent.Views.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/bin/Debug/netcoreapp3.0/VMRent.dll" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/bin/Debug/netcoreapp3.0/VMRent.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/bin/Debug/netcoreapp3.0/VMRent.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/bin/Debug/netcoreapp3.0/VMRent.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/Razor/Views/User/Details.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/Razor/Views/User/Details.cshtml.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/Razor/Views/Vm/All.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/Razor/Views/Vm/All.cshtml.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.RazorCoreGenerate.cache" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.RazorCoreGenerate.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.Views.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.Views.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.dll" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.pdb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,6 +35,10 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/VMRent/Views/Vm/Edit.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VMRent/ViewModels/CreateVmViewModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VMRent/Views/Vm/Create.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VMRent/ViewModels/EditVmViewModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/VMRent/Views/Vm/All.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/VMRent/ViewModels/ListVmViewModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/VMRent/Models/User.cs" root0="FORCE_HIGHLIGHTING" />
@@ -74,11 +97,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/VMRent/Repositories/MemoryVMRepository.cs" />
-        <option value="$PROJECT_DIR$/VMRent/Models/UserVm.cs" />
-        <option value="$PROJECT_DIR$/VMRent/Repositories/IVmRepository.cs" />
-        <option value="$PROJECT_DIR$/VMRent/Stores/RoleStoreService.cs" />
-        <option value="$PROJECT_DIR$/VMRent/Stores/UserRoleStore.cs" />
         <option value="$PROJECT_DIR$/VMRent/Repositories/IUserRepository.cs" />
         <option value="$PROJECT_DIR$/VMRent/ViewModels/LoginUserViewModel.cs" />
         <option value="$PROJECT_DIR$/VMRent/ViewModels/RegisterUserViewModel.cs" />
@@ -101,7 +119,6 @@
         <option value="$PROJECT_DIR$/VMRent/Views/User/RemoveFromRole.cshtml" />
         <option value="$PROJECT_DIR$/VMRent/Views/Account/Login.cshtml" />
         <option value="$PROJECT_DIR$/VMRent/Stores/VmStore.cs" />
-        <option value="$PROJECT_DIR$/VMRent/Repositories/MemoryUserVmRepository.cs" />
         <option value="$PROJECT_DIR$/VMRent/Repositories/IUserVmRepository.cs" />
         <option value="$PROJECT_DIR$/VMRent/Managers/SignInManager.cs" />
         <option value="$PROJECT_DIR$/VMRent/Startup.cs" />
@@ -111,20 +128,26 @@
         <option value="$PROJECT_DIR$/VMRent/ViewModels/ListVmViewModel.cs" />
         <option value="$PROJECT_DIR$/VMRent/Views/Shared/_Layout.cshtml" />
         <option value="$PROJECT_DIR$/VMRent/Repositories/DeepCopyTools.cs" />
-        <option value="$PROJECT_DIR$/VMRent/Repositories/MemoryVmRepository.cs" />
         <option value="$PROJECT_DIR$/VMRent/Models/Vm.cs" />
         <option value="$PROJECT_DIR$/VMRent/Models/ExtendedVm.cs" />
         <option value="$PROJECT_DIR$/VMRent/ViewModels/CreateReservationViewModel.cs" />
         <option value="$PROJECT_DIR$/VMRent/Views/Reservation/CreateReservation.cshtml" />
-        <option value="$PROJECT_DIR$/VMRent/Controllers/ReservationController.cs" />
-        <option value="$PROJECT_DIR$/VMRent/Views/Vm/All.cshtml" />
         <option value="$PROJECT_DIR$/VMRent/ViewModels/DetailUserVmViewModel.cs" />
-        <option value="$PROJECT_DIR$/VMRent/Managers/ReservationManager.cs" />
-        <option value="$PROJECT_DIR$/VMRent/Controllers/VmController.cs" />
-        <option value="$PROJECT_DIR$/VMRent/Views/User/Details.cshtml" />
         <option value="$PROJECT_DIR$/VMRent/ViewModels/DetailVmViewModel.cs" />
         <option value="$PROJECT_DIR$/VMRent/Views/Vm/Details.cshtml" />
+        <option value="$PROJECT_DIR$/VMRent/Views/Vm/CreateNewVm.cshtml" />
+        <option value="$PROJECT_DIR$/VMRent/ViewModels/CreateVmViewModel.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Views/Vm/Create.cshtml" />
+        <option value="$PROJECT_DIR$/VMRent/ViewModels/EditVmViewModel.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Views/Vm/All.cshtml" />
+        <option value="$PROJECT_DIR$/VMRent/Views/Vm/Edit.cshtml" />
         <option value="$PROJECT_DIR$/VMRent/Managers/VmManager.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Controllers/VmController.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Repositories/MemoryVmRepository.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Repositories/MemoryUserVmRepository.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Views/User/Details.cshtml" />
+        <option value="$PROJECT_DIR$/VMRent/Managers/ReservationManager.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Controllers/ReservationController.cs" />
       </list>
     </option>
   </component>
@@ -136,6 +159,7 @@
     <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
     <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -188,7 +212,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1579134878014</updated>
-      <workItem from="1579134879550" duration="62599000" />
+      <workItem from="1579134879550" duration="66417000" />
+      <workItem from="1579488748283" duration="11724000" />
     </task>
     <servers />
   </component>
@@ -200,7 +225,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
