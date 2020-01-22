@@ -11,7 +11,7 @@ using VMRent.ViewModels;
 namespace VMRent.Controllers
 {
     [Route("api/vm")]
-    [Authorize(Roles = "Administrator,Employee")]
+    [AllowAnonymous]
     public class RestVmController : Controller
     {
         private readonly VmManager _vmManager;

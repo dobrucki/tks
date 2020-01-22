@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json;
 using VMRent.Managers;
 using VMRent.Models;
 using VMRent.Repositories;
@@ -69,9 +70,9 @@ namespace VMRent
             });
 
             services.AddControllers().AddNewtonsoftJson(options =>
-            {
-                
-            });
+                {
+                    options.SerializerSettings.TypeNameHandling = TypeNameHandling.All;
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,9 +1,12 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using VMRent.Managers;
 using VMRent.Models;
 using VMRent.ViewModels;
@@ -18,6 +21,13 @@ namespace VMRent.Controllers
 
         private readonly HttpClient _httpClient = new HttpClient();
 
+        private readonly JsonSerializerSettings _jsonSerializerSettings = new JsonSerializerSettings
+        {
+            TypeNameHandling = TypeNameHandling.All
+        };
+        
+        private readonly Uri _baseAddress = new Uri("https://localhost:5001");
+
         public VmController(VmManager vmManager, ReservationManager reservationManager)
         {
             _vmManager = vmManager;
@@ -25,20 +35,20 @@ namespace VMRent.Controllers
         }
 
         [HttpGet]
-        public IActionResult All(string name)
+        public async Task<IActionResult> All(string name)
         {
-            var viewModel = new ListVmViewModel();
-            if (string.IsNullOrWhiteSpace(name))
+            var q = "https://localhost:5001/api/vm";
+            if (name != null)
             {
-                viewModel.Vms = _vmManager.ListAllVmsAsync().Result;
-            }
-            else
-            {
-                viewModel.Vms = _vmManager.ListAllVmsAsync().Result
-                    .Where(u => u.Name.Contains(name))
-                    .ToList();
+                q += $"?name={name}";
             }
 
+            var response = await _httpClient.GetAsync(q);
+            var json = await response.Content.ReadAsStringAsync();
+            var viewModel = new ListVmViewModel
+            {
+                Vms = JsonConvert.DeserializeObject<IList<Vm>>(json, _jsonSerializerSettings)
+            };
             return View(viewModel);
         }
 
@@ -51,30 +61,26 @@ namespace VMRent.Controllers
 
         [HttpPost]
         [Authorize(Roles = "Administrator, Employee")]
-        public IActionResult Create(CreateVmViewModel viewModel)
+        public async Task<IActionResult> Create(CreateVmViewModel viewModel)
         {
-            try
+            var cookieContainer = new CookieContainer();
+            using (var handler = new HttpClientHandler {CookieContainer = cookieContainer})
+            using (var client = new HttpClient(handler) {BaseAddress = _baseAddress})
             {
-                if (viewModel.Type == "Vm")
+                var content = new FormUrlEncodedContent(new []
                 {
-                    _vmManager.CreateVmAsync(viewModel.Name);
-                }
-                else
-                {
-                    _vmManager.CreateExtendedVmAsync(viewModel.Name, viewModel.Comment);
-                }
+                    new KeyValuePair<string, string>("name", viewModel.Name),
+                    new KeyValuePair<string, string>("type", viewModel.Type),
+                    new KeyValuePair<string, string>("comment", viewModel.Comment) 
+                });
+                var result = await client.PostAsync("/api/vm", content);
+                result.EnsureSuccessStatusCode();
             }
-            catch (ArgumentException e)
-            {
-                ModelState.AddModelError("", e.Message);
-                return View(viewModel);
-            }
-            
             return RedirectToAction("All", "Vm");
         }
 
         [HttpGet]
-        public IActionResult Details([FromRoute] string id)
+        public async Task<IActionResult> Details([FromRoute] string id)
         {
             var vm = _vmManager.GetVmById(id).Result;
             return View(new DetailVmViewModel{
@@ -84,39 +90,80 @@ namespace VMRent.Controllers
 
         [HttpGet]
         [Authorize(Roles = "Administrator, Employee")]
-        public IActionResult Edit([FromRoute] string id)
+        public async Task<IActionResult> Edit([FromRoute] string id)
         {
-            var vm = _vmManager.GetVmById(id).Result;
-            return View(new EditVmViewModel
+//            var vm = _vmManager.GetVmById(id).Result;
+//            return View(new EditVmViewModel
+//            {
+//                Id = vm.Id,
+//                Name = vm.Name,
+//                Comment = (vm as ExtendedVm)?.Comment
+//            });
+            
+            var cookieContainer = new CookieContainer();
+            using (var handler = new HttpClientHandler {CookieContainer = cookieContainer})
+            using (var client = new HttpClient(handler) {BaseAddress = _baseAddress})
             {
-                Id = vm.Id,
-                Name = vm.Name,
-                Comment = (vm as ExtendedVm)?.Comment
-            });
+//                var content = new FormUrlEncodedContent(new []
+//                {
+//                    new KeyValuePair<string, string>("name", viewModel.Name),
+//                    new KeyValuePair<string, string>("type", viewModel.Type),
+//                    new KeyValuePair<string, string>("comment", viewModel.Comment) 
+//                });
+                var result = await client.GetAsync("/api/vm");
+                var vm = JsonConvert.DeserializeObject<Vm>(await result.Content.ReadAsStringAsync());
+                result.EnsureSuccessStatusCode();
+                return View(new EditVmViewModel
+                {
+                    Id = vm.Id,
+                    Name = vm.Name,
+                    Comment = (vm as ExtendedVm)?.Comment
+                });
+            }
         }
 
         [HttpPost]
         [Authorize(Roles = "Administrator, Employee")]
-        public IActionResult Edit(EditVmViewModel viewModel)
+        public async Task<IActionResult> Edit(EditVmViewModel viewModel)
         {
-            var vm = _vmManager.GetVmById(viewModel.Id).Result;
-            vm.Name = viewModel.Name;
-            if (vm.GetType() == typeof(ExtendedVm))
+//            var vm = _vmManager.GetVmById(viewModel.Id).Result;
+//            vm.Name = viewModel.Name;
+//            if (vm.GetType() == typeof(ExtendedVm))
+//            {
+//                ((ExtendedVm) vm).Comment = viewModel.Comment;
+//            }
+//
+//            try
+//            {
+//                _vmManager.UpdateVm(vm);
+//            }
+//            catch (ArgumentException e)
+//            {
+//                ModelState.AddModelError("", e.Message);
+//                return View(viewModel);
+//            }
+//
+//            return RedirectToAction("All", "Vm");
+            
+            var cookieContainer = new CookieContainer();
+            using (var handler = new HttpClientHandler {CookieContainer = cookieContainer})
+            using (var client = new HttpClient(handler) {BaseAddress = _baseAddress})
             {
-                ((ExtendedVm) vm).Comment = viewModel.Comment;
+                var content = new FormUrlEncodedContent(new []
+                {
+                    new KeyValuePair<string, string>("name", viewModel.Name),
+                    new KeyValuePair<string, string>("comment", viewModel.Comment) 
+                });
+                var result = await client.PutAsync($"/api/vm/{viewModel.Id}", content);
+                var vm = JsonConvert.DeserializeObject<Vm>(await result.Content.ReadAsStringAsync());
+                result.EnsureSuccessStatusCode();
+                return View(new EditVmViewModel
+                {
+                    Id = vm.Id,
+                    Name = vm.Name,
+                    Comment = (vm as ExtendedVm)?.Comment
+                });
             }
-
-            try
-            {
-                _vmManager.UpdateVm(vm);
-            }
-            catch (ArgumentException e)
-            {
-                ModelState.AddModelError("", e.Message);
-                return View(viewModel);
-            }
-
-            return RedirectToAction("All", "Vm");
         }
 
         [HttpGet]

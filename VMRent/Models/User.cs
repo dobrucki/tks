@@ -33,7 +33,13 @@ namespace VMRent.Models
         public bool Active { get; set; }
         
         public IUserType UserType { get; set; }
+
+        public User()
+        {
+            UserType = new GoldenUserType();
+        }
     }
+    
 
 
     public interface IUserType

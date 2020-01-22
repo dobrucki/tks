@@ -34,17 +34,23 @@ namespace VMRent.Controllers
         public async Task<IActionResult> Login(LoginUserViewModel viewModel)
         {
             if (!ModelState.IsValid) return View(viewModel);
-            
-            var result = await _signInManager.PasswordSignInAsync(viewModel.Username, viewModel.Password,
-                viewModel.RememberMe, false);
-            if (result.Succeeded)
+
+            try
             {
-                return RedirectToAction("Index", "Home");
+                var result = await _signInManager.PasswordSignInAsync(viewModel.Username, viewModel.Password,
+                    viewModel.RememberMe, false);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            catch (Exception)
+            {
+                ModelState.AddModelError(string.Empty, "Invalid login attempt.");
             }
 
-            ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-
             return View(viewModel);
+            
         }
         
         #endregion
@@ -83,9 +89,19 @@ namespace VMRent.Controllers
                 PhoneNumber = viewModel.PhoneNumber
             };
 
-            var result = await _userManager.CreateAsync(user, viewModel.Password);
+            try
+            {
+                var result = await _userManager.CreateAsync(user, viewModel.Password);
+                if (result.Succeeded)
+                    return RedirectToAction("Index", "Home");
+                ModelState.AddModelError("", "Invalid register attempt");
+            }
+            catch (Exception e)
+            {
+                ModelState.AddModelError("", e.Message);
+            }
 
-            if (!result.Succeeded) return View(viewModel);
+            return View(viewModel);
             
             //await _signInManager.SignInAsync(user, isPersistent: false);
             //await _userManager.SetLockoutEnabledAsync(user, true);
