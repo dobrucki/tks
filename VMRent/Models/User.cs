@@ -51,7 +51,7 @@ namespace VMRent.Models
 
     public class GoldenUserType : IUserType
     {
-        public int MaxReservations => 1;
+        public int MaxReservations => 2;
 
         public override string ToString()
         {

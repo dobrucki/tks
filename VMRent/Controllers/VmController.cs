@@ -74,7 +74,6 @@ namespace VMRent.Controllers
                     new KeyValuePair<string, string>("comment", viewModel.Comment) 
                 });
                 var result = await client.PostAsync("/api/vm", content);
-                result.EnsureSuccessStatusCode();
             }
             return RedirectToAction("All", "Vm");
         }
@@ -110,9 +109,9 @@ namespace VMRent.Controllers
 //                    new KeyValuePair<string, string>("type", viewModel.Type),
 //                    new KeyValuePair<string, string>("comment", viewModel.Comment) 
 //                });
-                var result = await client.GetAsync("/api/vm");
-                var vm = JsonConvert.DeserializeObject<Vm>(await result.Content.ReadAsStringAsync());
-                result.EnsureSuccessStatusCode();
+                var result = await client.GetAsync($"/api/vm/{id}");
+                var vm = JsonConvert
+                    .DeserializeObject<Vm>(await result.Content.ReadAsStringAsync(), _jsonSerializerSettings);
                 return View(new EditVmViewModel
                 {
                     Id = vm.Id,
@@ -156,7 +155,15 @@ namespace VMRent.Controllers
                 });
                 var result = await client.PutAsync($"/api/vm/{viewModel.Id}", content);
                 var vm = JsonConvert.DeserializeObject<Vm>(await result.Content.ReadAsStringAsync());
-                result.EnsureSuccessStatusCode();
+                try
+                {
+                    result.EnsureSuccessStatusCode();
+                }
+                catch(HttpRequestException e)
+                {
+                    ModelState.AddModelError("error", result.ReasonPhrase);
+                }
+
                 return View(new EditVmViewModel
                 {
                     Id = vm.Id,
@@ -168,11 +175,30 @@ namespace VMRent.Controllers
 
         [HttpGet]
         [Authorize(Roles = "Administrator, Employee")]
-        public IActionResult Delete([FromRoute] string id)
+        public async Task<IActionResult> Delete([FromRoute] string id)
         {
-            var vm = _vmManager.GetVmById(id).Result;
-            _vmManager.DeleteVm(vm);
-            return RedirectToAction("All", "Vm");
+//            var vm = _vmManager.GetVmById(id).Result;
+//            _vmManager.DeleteVm(vm);
+//            return RedirectToAction("All", "Vm");
+
+            var cookieContainer = new CookieContainer();
+            using (var handler = new HttpClientHandler {CookieContainer = cookieContainer})
+            using (var client = new HttpClient(handler) {BaseAddress = _baseAddress})
+            {
+                var result = await client.DeleteAsync($"/api/vm/{id}");
+                var vm = JsonConvert
+                    .DeserializeObject<Vm>(await result.Content.ReadAsStringAsync(), _jsonSerializerSettings);
+                try
+                {
+                    result.EnsureSuccessStatusCode();
+                }
+                catch(HttpRequestException)
+                {
+                    ModelState.AddModelError("error", result.ReasonPhrase);
+                    return BadRequest(ModelState);
+                }
+                return RedirectToAction("All", "Vm");
+            }
         }
     }
 }

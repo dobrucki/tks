@@ -48,7 +48,7 @@ namespace VMRent.Controllers
                 return View(viewModel);
             }
 
-            return RedirectToAction("Details", "User", new {id = user.Id});
+            return RedirectToAction("Details", "Vm", new {id = vm.Id});
         }
 
         [HttpGet]
