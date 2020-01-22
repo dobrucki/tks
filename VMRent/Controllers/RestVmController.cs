@@ -40,6 +40,7 @@ namespace VMRent.Controllers
 
         // POST: api/vm/
         [HttpPost]
+        [Authorize(Roles = "Administrator, Employee")]
         public async Task<IActionResult> Post(CreateVmViewModel viewModel)
         {
             try
@@ -66,6 +67,7 @@ namespace VMRent.Controllers
 
         // PUT: api/vm/c5f41682-de9a-4532-83fb-081aa338bdb8
         [HttpPut("{id}")]
+        [Authorize(Roles = "Administrator, Employee")]
         public async Task<IActionResult> Put(string id, EditVmViewModel viewModel)
         {
             var vm = await _vmManager.GetVmById(id);
@@ -96,6 +98,7 @@ namespace VMRent.Controllers
         
         // DELETE: api/vm/c5f41682-de9a-4532-83fb-081aa338bdb8
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Administrator, Employee")]
         public async Task<IActionResult> Delete(string id)
         {
             var vm = await _vmManager.GetVmById(id);
