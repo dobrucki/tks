@@ -24,7 +24,8 @@ namespace VMRent.Repositories
                 TwoFactorEnabled = false,
                 LockoutEnabled = false,
                 LockoutEnd = null,
-                Active = true
+                Active = true,
+                UserType = new GoldenUserType()
             };
             _ctx.Add(Guid.Parse("782b8a8c-60f7-46f1-9641-44b6e2f36ee9"), user);
         }
@@ -93,6 +94,7 @@ namespace VMRent.Repositories
             innerUser.LockoutEnabled = user.LockoutEnabled;
             innerUser.LockoutEnd = user.LockoutEnd;
             innerUser.Active = user.Active;
+            innerUser.UserType = user.UserType;
         }
     }
 }

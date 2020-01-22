@@ -57,9 +57,25 @@ namespace VMRent.Managers
             if (!user.Active) 
                 return await Task.FromResult<UserVm>(null);
 
+            if (startTime.Value > endTime.Value)
+            {
+                throw new ArgumentException($"End time cannot be sooner than start time");
+            }
+
+            if (startTime.Value < DateTime.UtcNow)
+            {
+                throw new ArgumentException("Past time reservation");
+            }
+
             if (await IsReserved(vm, startTime.Value, endTime.Value))
             {
                 throw new ArgumentException($"Virtual machine with name {vm.Name} is already reserved");
+            }
+
+            var reservations = await GetReservationsForUserAsync(user);
+            if (reservations.Count >= user.UserType.MaxReservations)
+            {
+                throw new ArgumentException($"You have reached reservations count limit - {reservations.Count}");
             }
             
             var userVm = new UserVm

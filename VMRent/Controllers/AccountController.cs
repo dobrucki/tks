@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using VMRent.Models;
@@ -22,12 +23,14 @@ namespace VMRent.Controllers
         #region Login
         
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Login()
         {
             return View();
         }
         
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Login(LoginUserViewModel viewModel)
         {
             if (!ModelState.IsValid) return View(viewModel);
@@ -60,12 +63,14 @@ namespace VMRent.Controllers
         #region Register
         
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> Register()
         {
             return View();
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Register(RegisterUserViewModel viewModel)
         {
             if (!ModelState.IsValid) return View(viewModel);

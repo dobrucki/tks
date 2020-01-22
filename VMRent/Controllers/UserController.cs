@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using VMRent.Managers;
@@ -8,6 +9,7 @@ using VMRent.ViewModels;
 
 namespace VMRent.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     public class UserController : Controller
     {
         private readonly UserManager<User> _userManager;
@@ -51,7 +53,8 @@ namespace VMRent.Controllers
                 UserId = user.Id,
                 UserName = user.UserName,
                 Email = user.Email,
-                PhoneNumber = user.PhoneNumber
+                PhoneNumber = user.PhoneNumber,
+                IsActive = user.Active
             });
         }
 
@@ -65,6 +68,7 @@ namespace VMRent.Controllers
             user.Email = viewModel.Email;
             user.UserName = viewModel.UserName;
             user.PhoneNumber = viewModel.PhoneNumber;
+            user.Active = viewModel.IsActive;
             await _userManager.UpdateAsync(user);
             return RedirectToAction("All");
         }

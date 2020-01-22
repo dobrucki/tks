@@ -31,5 +31,25 @@ namespace VMRent.Models
         public DateTimeOffset? LockoutEnd { get; set; }
         
         public bool Active { get; set; }
+        
+        public IUserType UserType { get; set; }
+    }
+
+
+    public interface IUserType
+    {
+        int MaxReservations { get; }
+
+        string ToString();
+    }
+
+    public class GoldenUserType : IUserType
+    {
+        public int MaxReservations => 1;
+
+        public override string ToString()
+        {
+            return "Golden";
+        }
     }
 }

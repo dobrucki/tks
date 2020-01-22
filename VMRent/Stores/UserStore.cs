@@ -10,7 +10,7 @@ using VMRent.Repositories;
 namespace VMRent.Stores
 {
     public class UserStore: IUserStore<User>, IUserEmailStore<User>, IUserPhoneNumberStore<User>, 
-        IUserPasswordStore<User>, IUserRoleStore<User>, IUserLockoutStore<User>, IQueryableUserStore<User>
+        IUserPasswordStore<User>, IUserRoleStore<User>, IQueryableUserStore<User>
     {
         private readonly IUserRepository _userRepository;
 
@@ -73,13 +73,11 @@ namespace VMRent.Stores
         public async Task SetNormalizedUserNameAsync(User user, string normalizedName, CancellationToken cancellationToken)
         {
             user.NormalizedUserName = normalizedName;
-            _userRepository.Update(user);
         }
 
         public async Task SetUserNameAsync(User user, string userName, CancellationToken cancellationToken)
         {
             user.UserName = userName;
-            _userRepository.Update(user);
         }
 
         public async Task<IdentityResult> UpdateAsync(User user, CancellationToken cancellationToken)
@@ -117,19 +115,16 @@ namespace VMRent.Stores
         public async Task SetEmailAsync(User user, string email, CancellationToken cancellationToken)
         {
             user.Email = email;
-            _userRepository.Update(user);
         }
 
         public async Task SetEmailConfirmedAsync(User user, bool confirmed, CancellationToken cancellationToken)
         {
             user.EmailConfirmed = confirmed;
-            _userRepository.Update(user);
         }
 
         public async Task SetNormalizedEmailAsync(User user, string normalizedEmail, CancellationToken cancellationToken)
         {
             user.NormalizedEmail = normalizedEmail;
-            _userRepository.Update(user);
         }
         
         #endregion
@@ -315,13 +310,11 @@ namespace VMRent.Stores
         public async Task SetLockoutEnabledAsync(User user, bool enabled, CancellationToken cancellationToken)
         {
             user.LockoutEnabled = enabled;
-            _userRepository.Update(user);
         }
 
         public async Task SetLockoutEndDateAsync(User user, DateTimeOffset? lockoutEnd, CancellationToken cancellationToken)
         {
             user.LockoutEnd = lockoutEnd;
-            _userRepository.Update(user);
         }
         
         #endregion

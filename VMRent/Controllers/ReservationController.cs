@@ -44,6 +44,7 @@ namespace VMRent.Controllers
             catch (ArgumentException e)
             {
                 ModelState.AddModelError("", e.Message);
+                ViewBag.VmId = viewModel.VmId;
                 return View(viewModel);
             }
 

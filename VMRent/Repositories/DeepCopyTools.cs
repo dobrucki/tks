@@ -30,7 +30,8 @@ namespace VMRent.Repositories
                 UserName = user.UserName,
                 LockoutEnabled = user.LockoutEnabled,
                 LockoutEnd = user.LockoutEnd,
-                Active = user.Active
+                Active = user.Active,
+                UserType = user.UserType
             };
         }
         

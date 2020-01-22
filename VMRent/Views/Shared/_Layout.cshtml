@@ -28,7 +28,7 @@
     <ul class="navbar-nav">
       @if (SignInManager.IsSignedIn(User))
       {
-        var roles = await SignInManager.UserManager.GetRolesAsync(await SignInManager.UserManager.GetUserAsync(User));
+        var roles = await SignInManager.UserManager.GetRolesAsync(await SignInManager.UserManager.GetUserAsync(User)) ?? new List<string>();
         if (roles.Contains("Administrator"))
         {
           <li class="nav-item mx-2">

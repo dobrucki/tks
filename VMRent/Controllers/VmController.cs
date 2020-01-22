@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using VMRent.Managers;
 using VMRent.Models;
@@ -29,12 +30,14 @@ namespace VMRent.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Administrator, Employee")]
         public IActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
+        [Authorize(Roles = "Administrator, Employee")]
         public IActionResult Create(CreateVmViewModel viewModel)
         {
             try
@@ -67,6 +70,7 @@ namespace VMRent.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Administrator, Employee")]
         public IActionResult Edit([FromRoute] string id)
         {
             var vm = _vmManager.GetVmById(id).Result;
@@ -79,6 +83,7 @@ namespace VMRent.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Administrator, Employee")]
         public IActionResult Edit(EditVmViewModel viewModel)
         {
             var vm = _vmManager.GetVmById(viewModel.Id).Result;
@@ -102,6 +107,7 @@ namespace VMRent.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Administrator, Employee")]
         public IActionResult Delete([FromRoute] string id)
         {
             var vm = _vmManager.GetVmById(id).Result;

@@ -2,26 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b823611d-6cef-4d9d-a8f5-ed59dfc95336" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.VMRent/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VMRent/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VMRent/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VMRent/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/Controllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Controllers/AccountController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Controllers/HomeController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VMRent/Controllers/ReservationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Controllers/ReservationController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Controllers/UserController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VMRent/Controllers/VmController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Controllers/VmController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VMRent/Managers/ReservationManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Managers/ReservationManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VMRent/Managers/VmManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Managers/VmManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VMRent/Repositories/MemoryUserVmRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Repositories/MemoryUserVmRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VMRent/Repositories/MemoryVmRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Repositories/MemoryVmRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VMRent/Views/User/Details.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Views/User/Details.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VMRent/Views/Vm/All.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Views/Vm/All.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/Models/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Models/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/Repositories/DeepCopyTools.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Repositories/DeepCopyTools.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/Repositories/MemoryUserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Repositories/MemoryUserRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/Stores/UserStore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Stores/UserStore.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/ViewModels/EditUserViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/ViewModels/EditUserViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Views/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/Views/User/All.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Views/User/All.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/Views/User/Edit.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Views/User/Edit.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VMRent/bin/Debug/netcoreapp3.0/VMRent.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/bin/Debug/netcoreapp3.0/VMRent.Views.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VMRent/bin/Debug/netcoreapp3.0/VMRent.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/bin/Debug/netcoreapp3.0/VMRent.Views.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VMRent/bin/Debug/netcoreapp3.0/VMRent.dll" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/bin/Debug/netcoreapp3.0/VMRent.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VMRent/bin/Debug/netcoreapp3.0/VMRent.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/bin/Debug/netcoreapp3.0/VMRent.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/Razor/Views/User/Details.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/Razor/Views/User/Details.cshtml.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/Razor/Views/Vm/All.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/Razor/Views/Vm/All.cshtml.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.RazorCoreGenerate.cache" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.RazorCoreGenerate.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/Razor/Views/Shared/_Layout.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/Razor/Views/Shared/_Layout.cshtml.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/Razor/Views/User/All.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/Razor/Views/User/All.cshtml.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/Razor/Views/User/Edit.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/Razor/Views/User/Edit.cshtml.g.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.Views.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.Views.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.dll" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.pdb" afterDir="false" />
     </list>
@@ -97,22 +102,15 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/VMRent/Repositories/IUserRepository.cs" />
         <option value="$PROJECT_DIR$/VMRent/ViewModels/LoginUserViewModel.cs" />
         <option value="$PROJECT_DIR$/VMRent/ViewModels/RegisterUserViewModel.cs" />
         <option value="$PROJECT_DIR$/VMRent/Views/Account/Register.cshtml" />
-        <option value="$PROJECT_DIR$/VMRent/Models/User.cs" />
         <option value="$PROJECT_DIR$/VMRent/Managers/MyUserManager.cs" />
         <option value="$PROJECT_DIR$/VMRent/Managers/UserManager.cs" />
-        <option value="$PROJECT_DIR$/VMRent/Controllers/AccountController.cs" />
         <option value="$PROJECT_DIR$/VMRent/ViewModels/ListUserViewModel.cs" />
         <option value="$PROJECT_DIR$/VMRent/Stores/RoleStore.cs" />
-        <option value="$PROJECT_DIR$/VMRent/ViewModels/EditUserViewModel.cs" />
-        <option value="$PROJECT_DIR$/VMRent/Views/User/Edit.cshtml" />
-        <option value="$PROJECT_DIR$/VMRent/Repositories/MemoryUserRepository.cs" />
         <option value="$PROJECT_DIR$/VMRent/ViewModels/AddToRoleViewModel.cs" />
         <option value="$PROJECT_DIR$/VMRent/Views/User/AddToRole.cshtml" />
-        <option value="$PROJECT_DIR$/VMRent/Stores/UserStore.cs" />
         <option value="$PROJECT_DIR$/VMRent/Repositories/MemoryUserRoleRepository.cs" />
         <option value="$PROJECT_DIR$/VMRent/Repositories/MemoryRoleRepository.cs" />
         <option value="$PROJECT_DIR$/VMRent/ViewModels/ModifyUserRolesViewModel.cs" />
@@ -121,13 +119,8 @@
         <option value="$PROJECT_DIR$/VMRent/Stores/VmStore.cs" />
         <option value="$PROJECT_DIR$/VMRent/Repositories/IUserVmRepository.cs" />
         <option value="$PROJECT_DIR$/VMRent/Managers/SignInManager.cs" />
-        <option value="$PROJECT_DIR$/VMRent/Startup.cs" />
-        <option value="$PROJECT_DIR$/VMRent/Views/User/All.cshtml" />
         <option value="$PROJECT_DIR$/VMRent/ViewModels/DetailUserViewModel.cs" />
-        <option value="$PROJECT_DIR$/VMRent/Controllers/UserController.cs" />
         <option value="$PROJECT_DIR$/VMRent/ViewModels/ListVmViewModel.cs" />
-        <option value="$PROJECT_DIR$/VMRent/Views/Shared/_Layout.cshtml" />
-        <option value="$PROJECT_DIR$/VMRent/Repositories/DeepCopyTools.cs" />
         <option value="$PROJECT_DIR$/VMRent/Models/Vm.cs" />
         <option value="$PROJECT_DIR$/VMRent/Models/ExtendedVm.cs" />
         <option value="$PROJECT_DIR$/VMRent/ViewModels/CreateReservationViewModel.cs" />
@@ -142,12 +135,24 @@
         <option value="$PROJECT_DIR$/VMRent/Views/Vm/All.cshtml" />
         <option value="$PROJECT_DIR$/VMRent/Views/Vm/Edit.cshtml" />
         <option value="$PROJECT_DIR$/VMRent/Managers/VmManager.cs" />
-        <option value="$PROJECT_DIR$/VMRent/Controllers/VmController.cs" />
         <option value="$PROJECT_DIR$/VMRent/Repositories/MemoryVmRepository.cs" />
         <option value="$PROJECT_DIR$/VMRent/Repositories/MemoryUserVmRepository.cs" />
         <option value="$PROJECT_DIR$/VMRent/Views/User/Details.cshtml" />
-        <option value="$PROJECT_DIR$/VMRent/Managers/ReservationManager.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Controllers/HomeController.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Controllers/VmController.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Stores/UserStore.cs" />
+        <option value="$PROJECT_DIR$/VMRent/ViewModels/EditUserViewModel.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Views/User/Edit.cshtml" />
+        <option value="$PROJECT_DIR$/VMRent/Controllers/UserController.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Models/User.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Repositories/DeepCopyTools.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Controllers/AccountController.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Views/Shared/_Layout.cshtml" />
+        <option value="$PROJECT_DIR$/VMRent/Startup.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Repositories/MemoryUserRepository.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Views/User/All.cshtml" />
         <option value="$PROJECT_DIR$/VMRent/Controllers/ReservationController.cs" />
+        <option value="$PROJECT_DIR$/VMRent/Managers/ReservationManager.cs" />
       </list>
     </option>
   </component>
@@ -213,7 +218,7 @@
       <option name="presentableId" value="Default" />
       <updated>1579134878014</updated>
       <workItem from="1579134879550" duration="66417000" />
-      <workItem from="1579488748283" duration="11724000" />
+      <workItem from="1579488748283" duration="19646000" />
     </task>
     <servers />
   </component>
@@ -294,32 +299,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/VMRent/Stores/UserStore.cs</url>
-          <line>86</line>
-          <properties documentPath="$PROJECT_DIR$/VMRent/Stores/UserStore.cs" initialLine="86">
-            <startOffsets>
-              <option value="2933" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2962" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/VMRent/Stores/UserStore.cs</url>
-          <line>87</line>
-          <properties documentPath="$PROJECT_DIR$/VMRent/Stores/UserStore.cs" initialLine="87">
-            <startOffsets>
-              <option value="2975" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3005" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -1,10 +1,12 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace VMRent.Controllers
 {
     public class HomeController : Controller
     {
-        // GET
+        [HttpGet]
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View();

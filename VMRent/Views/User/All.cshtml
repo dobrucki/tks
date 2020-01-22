@@ -12,13 +12,15 @@
     ViewBag.Title = "Users";
 }
 
-<div class="container mt-2">
+<div class="container-fluid mt-2">
     <h2>Users</h2>
     <table class="table table-hover">
         <thead>
         <th>Username</th>
         <th>Email</th>
         <th>Phone number</th>
+        <th>User type</th>
+        <th>Activity</th>
         <th>Access level (roles)</th>
         <th></th>
         </thead>
@@ -29,6 +31,8 @@
                 <td>@user.UserName</td>
                 <td>@user.Email</td>
                 <td>@user.PhoneNumber</td>
+                <td>@user.UserType.ToString()</td>
+                <td>@user.Active</td>
                 <td>
                     @{
                         string rolesNames;
