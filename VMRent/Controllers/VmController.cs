@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -14,6 +15,8 @@ namespace VMRent.Controllers
         private readonly VmManager _vmManager;
 
         private readonly ReservationManager _reservationManager;
+
+        private readonly HttpClient _httpClient = new HttpClient();
 
         public VmController(VmManager vmManager, ReservationManager reservationManager)
         {

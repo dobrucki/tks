@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -21,11 +22,16 @@ namespace VMRent.Controllers
         }
 
         // GET: api/vm/
+        // GET: api/vm?name=machine
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> Search(string name)
         {
             var vms = await _vmManager.ListAllVmsAsync();
             if (vms is null) return NotFound();
+            if (name != null)
+            {
+                vms = vms.Where(vm => vm.Name.Contains(name)).ToList();
+            }
             return Json(vms);
         }
 
