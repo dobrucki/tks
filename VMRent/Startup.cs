@@ -67,6 +67,11 @@ namespace VMRent
                     .Build();
                 options.Filters.Add(new AuthorizeFilter(policy));
             });
+
+            services.AddControllers().AddNewtonsoftJson(options =>
+            {
+                
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -92,6 +97,7 @@ namespace VMRent
             app.UseMvc(routes =>
                 {
                     routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
+                    routes.MapRoute("api", "api/vm/{id?}");
                 }
             );
         }
