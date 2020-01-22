@@ -9,8 +9,22 @@
     ViewBag.Title = "Virtual machines";
 }
 
-<div class="container mt-2">
-    <h2>Virtual machines</h2>
+<div class="container-fluid mt-2">
+    <div class="row mx-2 justify-content-between">
+        <h2>Virtual machines</h2>
+            
+        <div class="col-sm-3">
+            <form class="input-group" asp-controller="Vm" asp-action="All" method="get">
+                <input type="text" name="name" class="form-control" placeholder="Search by username">
+                <div class="input-group-append">
+                    <button class="btn btn-secondary" type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
     <table class="table table-hover">
         <thead>
         <th>Name</th>
@@ -56,9 +70,14 @@
         }
         </tbody>
     </table>
-    <div class="btn-group" role="group">
-        <a asp-action="Create" asp-controller="Vm"
-           type="button" class="btn btn-primary" role="button">Create new Vm</a>
-    </div>
-</div>s
+    @if (UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result, "Administrator").Result
+        || UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result, "Employee").Result)
+    {
+        <div class="btn-group" role="group">
+            <a asp-action="Create" asp-controller="Vm"
+               type="button" class="btn btn-primary" role="button">Create new Vm</a>
+        </div>
+    }
+    
+</div>
 

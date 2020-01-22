@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
@@ -22,13 +23,30 @@ namespace VMRent.Controllers
             _reservationManager = reservationManager;
         }
 
+//        [HttpGet]
+//        public IActionResult All()
+//        {
+//            var viewModel = new ListUserViewModel
+//            {
+//                Users = _userManager.Users.ToList()
+//            };
+//            return View(viewModel);
+//        }
+        
         [HttpGet]
-        public IActionResult All()
+        public IActionResult All(string name)
         {
-            var viewModel = new ListUserViewModel
+            var viewModel = new ListUserViewModel();
+            if (string.IsNullOrWhiteSpace(name))
             {
-                Users = _userManager.Users.ToList()
-            };
+                viewModel.Users = _userManager.Users.ToList();
+            }
+            else
+            {
+                viewModel.Users = _userManager.Users
+                    .Where(u => u.UserName.Contains(name))
+                    .ToList();
+            }
             return View(viewModel);
         }
 

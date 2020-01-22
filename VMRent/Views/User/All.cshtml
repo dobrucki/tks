@@ -13,43 +13,57 @@
 }
 
 <div class="container-fluid mt-2">
-    <h2>Users</h2>
-    <table class="table table-hover">
+    <div class="row mx-2 justify-content-between">
+        <h2>Users</h2>
+        
+        <div class="col-sm-3">
+            <form class="input-group" asp-controller="User" asp-action="All" method="get">
+                <input type="text" name="name" class="form-control" placeholder="Search by username">
+                <div class="input-group-append">
+                    <button class="btn btn-secondary" type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+        
+    <table class="table table-hover mt-3">
         <thead>
-        <th>Username</th>
-        <th>Email</th>
-        <th>Phone number</th>
-        <th>User type</th>
-        <th>Activity</th>
-        <th>Access level (roles)</th>
-        <th></th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Phone number</th>
+            <th>User type</th>
+            <th>Activity</th>
+            <th>Access level (roles)</th>
+            <th></th>
         </thead>
         <tbody>
-        @foreach (var user in Model.Users)
-        {
-            <tr>
-                <td>@user.UserName</td>
-                <td>@user.Email</td>
-                <td>@user.PhoneNumber</td>
-                <td>@user.UserType.ToString()</td>
-                <td>@user.Active</td>
-                <td>
-                    @{
-                        string rolesNames;
-                        var roles = UserManager.GetRolesAsync(user).Result;
-                        rolesNames = roles.Any() ? roles.ToImmutableSortedSet().Aggregate((i, j) => i + ", " + j): string.Empty;
-                    }
-                    @rolesNames
-                </td>
-                
-                <td>
-                    @Html.ActionLink("Details", "Details", "User", new {id = user.Id}) |
-                    @Html.ActionLink("Add role", "AddToRole", "User", new {id = user.Id}) |
-                    @Html.ActionLink("Remove role", "RemoveFromRole", "User", new {id = user.Id}) |
-                    @Html.ActionLink("Edit", "Edit", "User", new {id = user.Id})
-                </td>
-            </tr>
-        }
+            @foreach (var user in Model.Users)
+            {
+                <tr>
+                    <td>@user.UserName</td>
+                    <td>@user.Email</td>
+                    <td>@user.PhoneNumber</td>
+                    <td>@user.UserType.ToString()</td>
+                    <td>@user.Active</td>
+                    <td>
+                        @{
+                            string rolesNames;
+                            var roles = UserManager.GetRolesAsync(user).Result;
+                            rolesNames = roles.Any() ? roles.ToImmutableSortedSet().Aggregate((i, j) => i + ", " + j) : string.Empty;
+                        }
+                        @rolesNames
+                    </td>
+
+                    <td>
+                        @Html.ActionLink("Details", "Details", "User", new {id = user.Id}) |
+                        @Html.ActionLink("Add role", "AddToRole", "User", new {id = user.Id}) |
+                        @Html.ActionLink("Remove role", "RemoveFromRole", "User", new {id = user.Id}) |
+                        @Html.ActionLink("Edit", "Edit", "User", new {id = user.Id})
+                    </td>
+                </tr>
+            }
         </tbody>
     </table>
 </div>

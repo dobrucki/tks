@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -21,12 +22,21 @@ namespace VMRent.Controllers
         }
 
         [HttpGet]
-        public IActionResult All()
+        public IActionResult All(string name)
         {
-            return View(new ListVmViewModel
+            var viewModel = new ListVmViewModel();
+            if (string.IsNullOrWhiteSpace(name))
             {
-                Vms = _vmManager.ListAllVmsAsync().Result
-            });
+                viewModel.Vms = _vmManager.ListAllVmsAsync().Result;
+            }
+            else
+            {
+                viewModel.Vms = _vmManager.ListAllVmsAsync().Result
+                    .Where(u => u.Name.Contains(name))
+                    .ToList();
+            }
+
+            return View(viewModel);
         }
 
         [HttpGet]
