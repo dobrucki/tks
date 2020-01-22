@@ -1,35 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b823611d-6cef-4d9d-a8f5-ed59dfc95336" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.VMRent/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VMRent/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VMRent/Controllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Controllers/AccountController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VMRent/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Controllers/HomeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VMRent/Controllers/ReservationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Controllers/ReservationController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VMRent/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Controllers/UserController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VMRent/Controllers/VmController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Controllers/VmController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VMRent/Managers/ReservationManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Managers/ReservationManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VMRent/Models/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Models/User.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VMRent/Repositories/DeepCopyTools.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Repositories/DeepCopyTools.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VMRent/Repositories/MemoryUserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Repositories/MemoryUserRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VMRent/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VMRent/Stores/UserStore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Stores/UserStore.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VMRent/ViewModels/EditUserViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/ViewModels/EditUserViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VMRent/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Views/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VMRent/Views/User/All.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Views/User/All.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VMRent/Views/User/Edit.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/Views/User/Edit.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VMRent/bin/Debug/netcoreapp3.0/VMRent.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/bin/Debug/netcoreapp3.0/VMRent.Views.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VMRent/bin/Debug/netcoreapp3.0/VMRent.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/bin/Debug/netcoreapp3.0/VMRent.Views.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VMRent/bin/Debug/netcoreapp3.0/VMRent.dll" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/bin/Debug/netcoreapp3.0/VMRent.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VMRent/bin/Debug/netcoreapp3.0/VMRent.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/bin/Debug/netcoreapp3.0/VMRent.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/Razor/Views/Shared/_Layout.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/Razor/Views/Shared/_Layout.cshtml.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/Razor/Views/User/All.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/Razor/Views/User/All.cshtml.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/Razor/Views/User/Edit.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/Razor/Views/User/Edit.cshtml.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.Views.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.Views.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.dll" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/VMRent/obj/Debug/netcoreapp3.0/VMRent.pdb" afterDir="false" />
-    </list>
+    <list default="true" id="b823611d-6cef-4d9d-a8f5-ed59dfc95336" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,7 +190,7 @@
       <option name="presentableId" value="Default" />
       <updated>1579134878014</updated>
       <workItem from="1579134879550" duration="66417000" />
-      <workItem from="1579488748283" duration="19646000" />
+      <workItem from="1579488748283" duration="19766000" />
     </task>
     <servers />
   </component>
