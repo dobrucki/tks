@@ -71,7 +71,7 @@ namespace VMRent.Repositories
                 Id = userVm.Id,
                 StartTime = userVm.StartTime,
                 EndTime = userVm.EndTime,
-                User = userVm.User.DeepClone(),
+                User = userVm.User?.DeepClone(),
                 Vm = userVm.Vm?.DeepClone()
             };
         }

@@ -43,7 +43,7 @@ namespace VMRent.Managers
             if (vm is null) throw new ArgumentNullException(nameof(vm));
 
             IList<UserVm> list = _userVmRepository
-                .GetAll(uv => uv.Vm.Id.Equals(vm.Id)).ToList();
+                .GetAll(uv => !(uv.Vm is null) && uv.Vm.Id.Equals(vm.Id)).ToList();
             return Task.FromResult(list);
         }
 
