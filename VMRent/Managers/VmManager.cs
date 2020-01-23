@@ -86,10 +86,13 @@ namespace VMRent.Managers
                 throw new ArgumentException($"Machine with name {vm.Name} already exists");
             }
 
-            var userVm = _userVmRepository.GetAll(uv => uv.Vm.Id.Equals(vm.Id)).FirstOrDefault();
-            userVm.Vm = vm;
+            var userVms = _userVmRepository.GetAll(i => i.Vm.Id.Equals(vm.Id));
+            foreach (var userVm in userVms)
+            {
+                userVm.Vm = vm;
+                _userVmRepository.Update(userVm);
+            }
             _vmRepository.Update(vm);
-            _userVmRepository.Update(userVm);
             return Task.CompletedTask;
         }
     }

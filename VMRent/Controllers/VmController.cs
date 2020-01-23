@@ -162,7 +162,7 @@ namespace VMRent.Controllers
                     new KeyValuePair<string, string>("comment", viewModel.Comment)
                 });
                 var result = await client.PutAsync($"/api/vm/{viewModel.Id}", content);
-                var vm = JsonConvert.DeserializeObject<Vm>(await result.Content.ReadAsStringAsync());
+                //var vm = JsonConvert.DeserializeObject<Vm>(await result.Content.ReadAsStringAsync());
                 if (result.StatusCode == HttpStatusCode.NoContent) return RedirectToAction("All");
                 ModelState.AddModelError("error", $"Cannot edit");
                 return View(viewModel);
