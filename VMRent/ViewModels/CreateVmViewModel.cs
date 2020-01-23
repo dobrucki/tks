@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Text.RegularExpressions;
 
 namespace VMRent.ViewModels
 {
@@ -7,9 +8,9 @@ namespace VMRent.ViewModels
         [Required]
         public string Name { get; set; }
         
+        [Required(AllowEmptyStrings = false)]
         public string Type { get; set; }
         
-        [Required]
         public string Comment { get; set; }
     }
 }

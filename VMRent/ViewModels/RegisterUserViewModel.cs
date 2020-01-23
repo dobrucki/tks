@@ -13,12 +13,12 @@ namespace VMRent.ViewModels
         [EmailAddress]
         public string Email { get; set; }
         
-       [Required]
-       [Phone]
+        [Required]
+        [RegularExpression(@"^\+(?:[0-9]●?){6,14}[0-9]$", ErrorMessage = "Wrong phone number")]
         public string PhoneNumber { get; set; }
         
         [Required]
-        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{6,15}$")]
+        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{6,15}$", ErrorMessage = "Wrong password")]
         public string Password { get; set; }
         
         [Compare("Password", ErrorMessage = "Passwords do not match")]

@@ -77,13 +77,15 @@ namespace VMRent.Controllers
                 try
                 {
                     result.EnsureSuccessStatusCode();
+                    return RedirectToAction("All", "Vm");
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
-                    return BadRequest(ModelState);
+                    ModelState.AddModelError("", e.Message);
                 }
+                return View(new CreateVmViewModel());
             }
-            return RedirectToAction("All", "Vm");
+            
         }
 
         [HttpGet]
