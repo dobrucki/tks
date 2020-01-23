@@ -53,14 +53,14 @@ namespace VMRent.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Administrator, Employee")]
+        [Authorize(Roles = "Administrator,Employee")]
         public IActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
-        [Authorize(Roles = "Administrator, Employee")]
+        [Authorize(Roles = "Administrator,Employee")]
         public async Task<IActionResult> Create(CreateVmViewModel viewModel)
         {
             if (!ModelState.IsValid) return View(viewModel);

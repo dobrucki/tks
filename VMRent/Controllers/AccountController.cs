@@ -43,6 +43,7 @@ namespace VMRent.Controllers
                 {
                     return RedirectToAction("Index", "Home");
                 }
+                throw new Exception("User is not active");
             }
             catch (Exception)
             {

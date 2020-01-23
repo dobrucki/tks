@@ -58,7 +58,8 @@
                 <td>
                     @Html.ActionLink("Details", "Details", "Vm", new {id = vm.Id}) |
                     @Html.ActionLink("Reserve", "CreateReservation", "Reservation", new {id = vm.Id})
-                    @if (UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result, "Administrator").Result)
+                    @if (UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result, "Administrator").Result
+                        || UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result, "Employee").Result)
                     {
                         <span> 
                             | @Html.ActionLink("Edit", "Edit", "Vm", new {id = vm.Id}) | 
