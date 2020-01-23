@@ -63,6 +63,7 @@ namespace VMRent.Controllers
         [Authorize(Roles = "Administrator, Employee")]
         public async Task<IActionResult> Create(CreateVmViewModel viewModel)
         {
+            if (!ModelState.IsValid) return View(viewModel);
             var cookieContainer = new CookieContainer();
             using (var handler = new HttpClientHandler {CookieContainer = cookieContainer})
             using (var client = new HttpClient(handler) {BaseAddress = _baseAddress})
@@ -79,11 +80,15 @@ namespace VMRent.Controllers
                     result.EnsureSuccessStatusCode();
                     return RedirectToAction("All", "Vm");
                 }
+                catch (HttpRequestException)
+                {
+                    ModelState.AddModelError("", "Cannot create vm");
+                }
                 catch (Exception e)
                 {
                     ModelState.AddModelError("", e.Message);
                 }
-                return View(new CreateVmViewModel());
+                return View(viewModel);
             }
             
         }
@@ -101,14 +106,6 @@ namespace VMRent.Controllers
         [Authorize(Roles = "Administrator, Employee")]
         public async Task<IActionResult> Edit([FromRoute] string id)
         {
-//            var vm = _vmManager.GetVmById(id).Result;
-//            return View(new EditVmViewModel
-//            {
-//                Id = vm.Id,
-//                Name = vm.Name,
-//                Comment = (vm as ExtendedVm)?.Comment
-//            });
-            
             var cookieContainer = new CookieContainer();
             using (var handler = new HttpClientHandler {CookieContainer = cookieContainer})
             using (var client = new HttpClient(handler) {BaseAddress = _baseAddress})
@@ -153,7 +150,7 @@ namespace VMRent.Controllers
 //            }
 //
 //            return RedirectToAction("All", "Vm");
-            
+            if (!ModelState.IsValid) return View(viewModel);
             var cookieContainer = new CookieContainer();
             using (var handler = new HttpClientHandler {CookieContainer = cookieContainer})
             using (var client = new HttpClient(handler) {BaseAddress = _baseAddress})
@@ -167,8 +164,8 @@ namespace VMRent.Controllers
                 var result = await client.PutAsync($"/api/vm/{viewModel.Id}", content);
                 var vm = JsonConvert.DeserializeObject<Vm>(await result.Content.ReadAsStringAsync());
                 if (result.StatusCode == HttpStatusCode.NoContent) return RedirectToAction("All");
-                ModelState.AddModelError("error", $"Wrong name");
-                return View(new EditVmViewModel());
+                ModelState.AddModelError("error", $"Cannot edit");
+                return View(viewModel);
 
             }
 
