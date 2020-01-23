@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -133,6 +134,14 @@ namespace VMRent.Controllers
             if (user is null) return NotFound();
             await _userManager.RemoveFromRoleAsync(user, viewModel.Role);
             return RedirectToAction("All");
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        JsonResult IsUsernameInUse(string UserName)
+        {
+            return Json(!_userManager.Users
+                .Any(u => string.Equals(u.UserName, UserName, StringComparison.CurrentCultureIgnoreCase)));
         }
     }
 }

@@ -74,6 +74,14 @@ namespace VMRent.Controllers
                     new KeyValuePair<string, string>("comment", viewModel.Comment) 
                 });
                 var result = await client.PostAsync("/api/vm", content);
+                try
+                {
+                    result.EnsureSuccessStatusCode();
+                }
+                catch (Exception)
+                {
+                    return BadRequest(ModelState);
+                }
             }
             return RedirectToAction("All", "Vm");
         }
@@ -148,29 +156,21 @@ namespace VMRent.Controllers
             using (var handler = new HttpClientHandler {CookieContainer = cookieContainer})
             using (var client = new HttpClient(handler) {BaseAddress = _baseAddress})
             {
-                var content = new FormUrlEncodedContent(new []
+                var content = new FormUrlEncodedContent(new[]
                 {
+                    new KeyValuePair<string, string>("id", viewModel.Id),
                     new KeyValuePair<string, string>("name", viewModel.Name),
-                    new KeyValuePair<string, string>("comment", viewModel.Comment) 
+                    new KeyValuePair<string, string>("comment", viewModel.Comment)
                 });
                 var result = await client.PutAsync($"/api/vm/{viewModel.Id}", content);
                 var vm = JsonConvert.DeserializeObject<Vm>(await result.Content.ReadAsStringAsync());
-                try
-                {
-                    result.EnsureSuccessStatusCode();
-                }
-                catch(HttpRequestException e)
-                {
-                    ModelState.AddModelError("error", result.ReasonPhrase);
-                }
+                if (result.StatusCode == HttpStatusCode.NoContent) return RedirectToAction("All");
+                ModelState.AddModelError("error", $"Wrong name");
+                return View(new EditVmViewModel());
 
-                return View(new EditVmViewModel
-                {
-                    Id = vm.Id,
-                    Name = vm.Name,
-                    Comment = (vm as ExtendedVm)?.Comment
-                });
             }
+
+            return RedirectToAction("All");
         }
 
         [HttpGet]
