@@ -13,7 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
-using VMRent.Managers;
+using VMRent.Services;
 using VMRent.Models;
 using VMRent.Repositories;
 using VMRent.Stores;
@@ -44,10 +44,10 @@ namespace VMRent
             services.AddTransient<IUserStore<User>, UserStore>();
             services.AddTransient<IRoleStore<Role>, RoleStore>();
 
-            services.AddTransient<SignInManager<User>, SignInManager>();
+            services.AddTransient<SignInManager<User>, SignInService>();
             services.AddTransient<UserManager<User>>();
-            services.AddTransient<VmManager>();
-            services.AddTransient<ReservationManager>();
+            services.AddTransient<VmService>();
+            services.AddTransient<ReservationService>();
 
             services.AddSingleton<IUserType, GoldenUserType>();
 

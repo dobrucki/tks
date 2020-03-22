@@ -3,26 +3,26 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using VMRent.Managers;
 using VMRent.Models;
+using VMRent.Services;
 using VMRent.ViewModels;
 
 namespace VMRent.Controllers
 {
     public class ReservationController : Controller
     {
-        private readonly UserManager<User> _userManager;
+        private readonly UserManager<User> _userService;
 
-        private readonly ReservationManager _reservationManager;
+        private readonly ReservationService _reservationService;
 
-        private readonly VmManager _vmManager;
+        private readonly VmService _vmService;
 
-        public ReservationController(UserManager<User> userManager, 
-            ReservationManager reservationManager, VmManager vmManager)
+        public ReservationController(UserManager<User> userService, 
+            ReservationService reservationService, VmService vmService)
         {
-            _userManager = userManager;
-            _reservationManager = reservationManager;
-            _vmManager = vmManager;
+            _userService = userService;
+            _reservationService = reservationService;
+            _vmService = vmService;
         }
 
         [HttpGet]
@@ -35,11 +35,11 @@ namespace VMRent.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateReservation(CreateReservationViewModel viewModel)
         {
-            var user = _userManager.GetUserAsync(User).Result;
-            var vm = _vmManager.GetVmById(viewModel.VmId).Result;
+            var user = _userService.GetUserAsync(User).Result;
+            var vm = _vmService.GetVmById(viewModel.VmId).Result;
             try
             {
-                await _reservationManager.CreateReservationAsync(user, vm, viewModel.StartTime, viewModel.EndTime);
+                await _reservationService.CreateReservationAsync(user, vm, viewModel.StartTime, viewModel.EndTime);
             }
             catch (ArgumentException e)
             {
@@ -54,8 +54,8 @@ namespace VMRent.Controllers
         [HttpGet]
         public IActionResult CancelReservation([FromRoute] string id)
         {
-            var userVm = _reservationManager.GetReservationById(id);
-            _reservationManager.CancelReservationAsync(userVm.Result);
+            var userVm = _reservationService.GetReservationById(id);
+            _reservationService.CancelReservationAsync(userVm.Result);
             return RedirectToAction("Details", "User", new {id = userVm.Result.User.Id});
         }
     }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using VMRent.Managers;
+using VMRent.Services;
 using VMRent.Models;
 using VMRent.ViewModels;
 
@@ -14,11 +14,11 @@ namespace VMRent.Controllers
     [AllowAnonymous]
     public class RestVmController : Controller
     {
-        private readonly VmManager _vmManager;
+        private readonly VmService _vmService;
 
-        public RestVmController(VmManager vmManager)
+        public RestVmController(VmService vmService)
         {
-            _vmManager = vmManager;
+            _vmService = vmService;
         }
 
         // GET: api/vm/
@@ -26,7 +26,7 @@ namespace VMRent.Controllers
         [HttpGet]
         public async Task<IActionResult> Search(string name)
         {
-            var vms = await _vmManager.ListAllVmsAsync();
+            var vms = await _vmService.ListAllVmsAsync();
             if (vms is null) return NotFound();
             if (name != null)
             {
@@ -39,7 +39,7 @@ namespace VMRent.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(string id)
         {
-            var vm = await _vmManager.GetVmById(id);
+            var vm = await _vmService.GetVmById(id);
             if (vm is null) return NotFound();
             return Json(vm);
         }
@@ -54,11 +54,11 @@ namespace VMRent.Controllers
                 Vm vm;
                 if (viewModel.Type.Equals("ExtendedVm"))
                 {
-                    vm = await _vmManager.CreateExtendedVmAsync(viewModel.Name, viewModel.Comment);
+                    vm = await _vmService.CreateExtendedVmAsync(viewModel.Name, viewModel.Comment);
                 }
                 else
                 {
-                    vm = await _vmManager.CreateVmAsync(viewModel.Name);
+                    vm = await _vmService.CreateVmAsync(viewModel.Name);
                 }
 
                 return CreatedAtAction("Get", new {id = vm.Id}, vm);
@@ -76,7 +76,7 @@ namespace VMRent.Controllers
         [Authorize(Roles = "Administrator, Employee")]
         public async Task<IActionResult> Put(string id, EditVmViewModel viewModel)
         {
-            var vm = await _vmManager.GetVmById(id);
+            var vm = await _vmService.GetVmById(id);
             
             if (vm is null)
             {
@@ -91,7 +91,7 @@ namespace VMRent.Controllers
 
             try
             {
-                await _vmManager.UpdateVm(vm);
+                await _vmService.UpdateVm(vm);
                 return NoContent();
             }
             catch (ArgumentException e)
@@ -107,7 +107,7 @@ namespace VMRent.Controllers
         [Authorize(Roles = "Administrator, Employee")]
         public async Task<IActionResult> Delete(string id)
         {
-            var vm = await _vmManager.GetVmById(id);
+            var vm = await _vmService.GetVmById(id);
             if (vm is null)
             {
                 return NotFound();
@@ -115,7 +115,7 @@ namespace VMRent.Controllers
 
             try
             {
-                await _vmManager.DeleteVm(vm);
+                await _vmService.DeleteVm(vm);
                 return Json(vm);
             }
             catch (ArgumentException e)

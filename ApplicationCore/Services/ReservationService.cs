@@ -6,13 +6,13 @@ using VMRent.Models;
 using VMRent.Repositories;
 using VMRent.Stores;
 
-namespace VMRent.Managers
+namespace VMRent.Services
 {
-    public class ReservationManager
+    public class ReservationService
     {
         private readonly IUserVmRepository _userVmRepository;
 
-        public ReservationManager(IUserVmRepository userVmRepository)
+        public ReservationService(IUserVmRepository userVmRepository)
         {
             _userVmRepository = userVmRepository;
         }

@@ -5,15 +5,15 @@ using System.Threading.Tasks;
 using VMRent.Models;
 using VMRent.Repositories;
 
-namespace VMRent.Managers
+namespace VMRent.Services
 {
-    public class VmManager
+    public class VmService
     {
         private readonly IVmRepository _vmRepository;
 
         private readonly IUserVmRepository _userVmRepository;
 
-        public VmManager(IVmRepository vmRepository, IUserVmRepository userVmRepository)
+        public VmService(IVmRepository vmRepository, IUserVmRepository userVmRepository)
         {
             _vmRepository = vmRepository;
             _userVmRepository = userVmRepository;

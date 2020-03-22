@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using VMRent.Managers;
+using VMRent.Services;
 using VMRent.Models;
 using VMRent.ViewModels;
 
@@ -15,9 +15,9 @@ namespace VMRent.Controllers
 {
     public class VmController : Controller
     {
-        private readonly VmManager _vmManager;
+        private readonly VmService _vmService;
 
-        private readonly ReservationManager _reservationManager;
+        private readonly ReservationService _reservationService;
 
         private readonly HttpClient _httpClient = new HttpClient();
 
@@ -28,10 +28,10 @@ namespace VMRent.Controllers
         
         private readonly Uri _baseAddress = new Uri("https://localhost:5001");
 
-        public VmController(VmManager vmManager, ReservationManager reservationManager)
+        public VmController(VmService vmService, ReservationService reservationService)
         {
-            _vmManager = vmManager;
-            _reservationManager = reservationManager;
+            _vmService = vmService;
+            _reservationService = reservationService;
         }
 
         [HttpGet]
@@ -96,9 +96,9 @@ namespace VMRent.Controllers
         [HttpGet]
         public async Task<IActionResult> Details([FromRoute] string id)
         {
-            var vm = _vmManager.GetVmById(id).Result;
+            var vm = _vmService.GetVmById(id).Result;
             return View(new DetailVmViewModel{
-                UserVms = _reservationManager.GetReservationsForVmAsync(vm).Result
+                UserVms = _reservationService.GetReservationsForVmAsync(vm).Result
             });
         }
 
@@ -132,7 +132,7 @@ namespace VMRent.Controllers
         [Authorize(Roles = "Administrator, Employee")]
         public async Task<IActionResult> Edit(EditVmViewModel viewModel)
         {
-//            var vm = _vmManager.GetVmById(viewModel.Id).Result;
+//            var vm = _vmService.GetVmById(viewModel.Id).Result;
 //            vm.Name = viewModel.Name;
 //            if (vm.GetType() == typeof(ExtendedVm))
 //            {
@@ -141,7 +141,7 @@ namespace VMRent.Controllers
 //
 //            try
 //            {
-//                _vmManager.UpdateVm(vm);
+//                _vmService.UpdateVm(vm);
 //            }
 //            catch (ArgumentException e)
 //            {
@@ -176,8 +176,8 @@ namespace VMRent.Controllers
         [Authorize(Roles = "Administrator, Employee")]
         public async Task<IActionResult> Delete([FromRoute] string id)
         {
-//            var vm = _vmManager.GetVmById(id).Result;
-//            _vmManager.DeleteVm(vm);
+//            var vm = _vmService.GetVmById(id).Result;
+//            _vmService.DeleteVm(vm);
 //            return RedirectToAction("All", "Vm");
 
             var cookieContainer = new CookieContainer();
