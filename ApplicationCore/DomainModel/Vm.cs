@@ -1,4 +1,4 @@
-namespace VMRent.Models
+namespace VMRent.DomainModel
 {
     public class Vm
     {

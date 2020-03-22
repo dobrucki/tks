@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
-using VMRent.Models;
+using VMRent.DomainModel;
 
 namespace VMRent.Repositories
 {

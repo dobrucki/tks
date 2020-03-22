@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using VMRent.Models;
+using VMRent.DomainModel;
 
 namespace VMRent.Repositories
 {

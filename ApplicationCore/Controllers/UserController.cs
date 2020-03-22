@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using VMRent.DomainModel;
 using VMRent.Services;
-using VMRent.Models;
 using VMRent.ViewModels;
 
 namespace VMRent.Controllers

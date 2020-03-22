@@ -1,6 +1,6 @@
 using System;
 
-namespace VMRent.Models
+namespace VMRent.DomainModel
 {
     public class UserVm
     {

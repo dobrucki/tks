@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using VMRent.Models;
+using VMRent.DomainModel;
 
 namespace VMRent.ViewModels
 {

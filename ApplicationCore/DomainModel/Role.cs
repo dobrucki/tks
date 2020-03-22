@@ -1,6 +1,4 @@
-using Microsoft.AspNetCore.Identity;
-
-namespace VMRent.Models
+namespace VMRent.DomainModel
 {
     public class Role
     {

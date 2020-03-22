@@ -3,7 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using VMRent.Models;
+using VMRent.DomainModel;
 using VMRent.Services;
 using VMRent.ViewModels;
 

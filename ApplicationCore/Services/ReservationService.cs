@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using VMRent.Models;
+using VMRent.DomainModel;
 using VMRent.Repositories;
 using VMRent.Stores;
 

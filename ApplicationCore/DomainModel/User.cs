@@ -1,8 +1,6 @@
 using System;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
 
-namespace VMRent.Models
+namespace VMRent.DomainModel
 {
     public class User
     {

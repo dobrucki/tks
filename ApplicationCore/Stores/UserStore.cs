@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
-using VMRent.Models;
+using VMRent.DomainModel;
 using VMRent.Repositories;
 
 namespace VMRent.Stores

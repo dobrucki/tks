@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.Identity;
-
 namespace RepositoriesAdapters.Entities
 {
     public class RoleEnt

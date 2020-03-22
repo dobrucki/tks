@@ -13,8 +13,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
+using VMRent.DomainModel;
 using VMRent.Services;
-using VMRent.Models;
 using VMRent.Repositories;
 using VMRent.Stores;
 

@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using VMRent.DomainModel;
 using VMRent.Services;
-using VMRent.Models;
 using VMRent.ViewModels;
 
 namespace VMRent.Controllers
