@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VMRent", "VMRent\VMRent.csproj", "{6EC1F7EA-8E70-4B75-AACE-8131F6EFFB66}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationCore", "ApplicationCore\ApplicationCore.csproj", "{6EC1F7EA-8E70-4B75-AACE-8131F6EFFB66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoriesAdapters", "RepositoriesAdapters\RepositoriesAdapters.csproj", "{8385A6D3-5866-4658-A7E7-83F452B81E79}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,5 +14,9 @@ Global
 		{6EC1F7EA-8E70-4B75-AACE-8131F6EFFB66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EC1F7EA-8E70-4B75-AACE-8131F6EFFB66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6EC1F7EA-8E70-4B75-AACE-8131F6EFFB66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8385A6D3-5866-4658-A7E7-83F452B81E79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8385A6D3-5866-4658-A7E7-83F452B81E79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8385A6D3-5866-4658-A7E7-83F452B81E79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8385A6D3-5866-4658-A7E7-83F452B81E79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
