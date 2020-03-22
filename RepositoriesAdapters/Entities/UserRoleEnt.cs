@@ -6,6 +6,6 @@ namespace RepositoriesAdapters.Entities
         
         public UserEnt UserEnt { get; set; }
         
-        public RoleEnt Role { get; set; }
+        public RoleEnt RoleEnt { get; set; }
     }
 }
